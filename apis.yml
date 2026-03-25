@@ -1,0 +1,41 @@
+aid: api-dash
+name: API Dash
+description: >-
+  API Dash is an open source AI-powered cross-platform API client built with
+  Flutter for desktop and mobile, serving as a lightweight alternative to
+  Postman and Insomnia with REST, GraphQL, and WebSocket support.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Command Line Interface
+  - API Client
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/api-dash/refs/heads/main/apis.yml
+created: '2026-03-25'
+modified: '2026-03-25'
+specificationVersion: '0.19'
+apis:
+  - aid: api-dash:api-dash
+    name: API Dash
+    description: >-
+      API Dash is an open source AI-powered cross-platform API client built
+      with Flutter for desktop and mobile.
+    humanURL: https://apidash.dev
+    tags:
+      - Command Line Interface
+      - API Client
+    properties:
+      - type: Documentation
+        url: https://github.com/foss42/apidash#readme
+      - type: GitHub Repository
+        url: https://github.com/foss42/apidash
+common:
+  - type: Website
+    url: https://apidash.dev
+  - type: Documentation
+    url: https://github.com/foss42/apidash#readme
+  - type: GitHub Organization
+    url: https://github.com/foss42/apidash
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
