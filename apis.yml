@@ -7,8 +7,8 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Command Line Interface
   - API Client
+  - Command Line Interface
 url: >-
   https://raw.githubusercontent.com/api-evangelist/api-dash/refs/heads/main/apis.yml
 created: '2026-03-25'
@@ -22,8 +22,8 @@ apis:
       with Flutter for desktop and mobile.
     humanURL: https://apidash.dev
     tags:
-      - Command Line Interface
       - API Client
+      - Command Line Interface
     properties:
       - type: Documentation
         url: https://github.com/foss42/apidash#readme
