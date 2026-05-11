@@ -106,6 +106,16 @@ common:
         description: >-
           Import and export OpenAPI specifications for structured API
           request collection management.
+  - type: Integrations
+    url: https://apidash.dev/integrations
+integrations:
+  - name: logo
+  - name: API Dash screenshot
+  - name: JSON
+  - name: Headers
+  - name: Code Generator
+  - name: Audio
+  - name: PDF
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
