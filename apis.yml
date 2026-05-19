@@ -44,6 +44,8 @@ apis:
       - type: GettingStarted
         url: https://github.com/foss42/apidash#installation
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/apidash
   - type: Website
     url: https://apidash.dev
   - type: GitHubOrganization
