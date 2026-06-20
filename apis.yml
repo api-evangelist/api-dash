@@ -9,7 +9,7 @@ description: >-
   by the foss42 organization, API Dash is a lightweight alternative to Postman
   and Insomnia with an active open source community.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - API Client
 - Open Source
