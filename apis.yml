@@ -112,7 +112,7 @@ common:
       request collection management.
 - type: Integrations
   url: https://apidash.dev/integrations
-- type: LLMsTxt
+- type: LlmsText
   url: https://apidash.dev/llms.txt
 integrations:
 - name: logo
