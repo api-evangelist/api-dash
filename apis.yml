@@ -46,6 +46,8 @@ apis:
   - url: graphql/api-dash-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/api-dash-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/apidash
 - type: Website
