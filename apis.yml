@@ -32,7 +32,7 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/api-dash/refs/heads/main/apis.yml
 created: '2026-03-25'
 modified: '2026-04-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: api-dash:api-dash
   name: API Dash
