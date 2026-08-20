@@ -24,6 +24,12 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/api-dash.png
 tags:
 - API Client
+- Open-Source
+- Flutter
+- Desktop
+- Mobile
+tags_raw:
+- API Client
 - Open Source
 - Flutter
 - Desktop
@@ -43,6 +49,12 @@ apis:
     visualization.
   humanURL: https://apidash.dev
   tags:
+  - API Client
+  - Flutter
+  - Open-Source
+  - Desktop
+  - Mobile
+  tags_raw:
   - API Client
   - Flutter
   - Open Source
