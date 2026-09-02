@@ -3,142 +3,34 @@ specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
 provider: API Dash
 providerId: api-dash
+generated: '2026-09-02'
+method: searched
+source: https://apidash.dev/ + https://github.com/foss42/apidash/blob/main/LICENSE + https://github.com/foss42/api
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - API Client
-  - Open Source
-  - Flutter
-  - Desktop
-  - Mobile
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
-plans:
-  - id: api-dash-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the API Dash API surface. Intended for evaluation, prototyping, and
-      low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: API Dash
-  - id: api-dash-pro
-    name: Professional
-    type: paid
-    description: Production tier for API Dash. Provides higher quotas, priority support, and access to
-      the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: API Dash
-  - id: api-dash-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for API Dash. Includes dedicated capacity, contractual SLAs, security
-      review, data residency options, and named technical account management.
-    entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-    elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: API Dash
+modified: '2026-09-02'
+plan_count: 0
+plans: []
+description: >-
+  API Dash publishes no plans and charges no money. Both surfaces are free: the desktop/mobile
+  client is Apache-2.0 open source distributed as installers from GitHub Releases, and the API Dash
+  APIs at api.apidash.dev are keyless and free ("Open Source APIs for all!" — the OpenAPI's own
+  info.description). There is no pricing page, no sign-up, no metering and no enterprise contact
+  form. plan_count is 0 because that is the measurement, not because the page could not be found.
+supersedes:
+  what: >-
+    A three-tier Free / Professional / Enterprise scaffold with invented request quotas (1,000 and
+    100,000 per month), invented per-minute rate limits and `price: TBD` placeholders, written by
+    the 2026-05-04 bulk sweep and carrying method:generated.
+  why: >-
+    None of it was ever published by API Dash. It described a metered commercial API for a company
+    that sells nothing, and it would have been read as the provider's own pricing. Replaced with the
+    measured zero on 2026-09-02.
+evidence:
+- {url: 'https://apidash.dev/pricing', http_status: 200, verdict: 'soft-404 - SPA shell, 42967 bytes, byte-identical to a random control path. No pricing page exists.'}
+- {url: 'https://apidash.dev/', http_status: 200, verdict: 'product site - download links only, no pricing, no sign-up'}
+- {url: 'https://api.apidash.dev/openapi.json', http_status: 200, verdict: 'info.description reads "Open Source APIs for all!"; no billing or quota parameter on any of the 57 operations'}
+- {url: 'https://github.com/foss42/apidash/blob/main/LICENSE', http_status: 200, verdict: 'Apache License 2.0'}
+- {url: 'https://github.com/foss42/api', http_status: 200, verdict: 'Apache-2.0; repository homepage is https://api.apidash.dev/docs'}
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,82 @@
+generated: '2026-09-02'
+method: searched
+source: https://api.apidash.dev/docs + https://github.com/foss42/apidash/blob/main/doc/dev_guide/api_endpoints_for_testing.md
+note: >-
+  There is no test-vs-live separation to capture here, because there is no live mode to separate
+  from: the API Dash APIs are free, keyless and open-source, so the production surface IS the
+  sandbox. What the provider does publish, and what is captured below, is (a) a live interactive
+  console and (b) a family of endpoints built specifically to be called by a client under test.
+  No test credentials are recorded because the provider publishes none — POST /auth/login takes a
+  username and password and the docs state no sample pair, and inventing one would be fabrication.
+console:
+  type: swagger-ui
+  url: https://api.apidash.dev/docs
+  interactive: true
+  auth_required: false
+  status: 200
+  probed: '2026-09-02'
+  note: FastAPI-generated Swagger UI 5.9.0 with Try-it-out enabled against the live host.
+  alternate:
+    type: redoc
+    url: https://api.apidash.dev/redoc
+    interactive: false
+    status: 200
+credentials:
+  test_keys: []
+  key_prefixes: []
+  note: >-
+    None published. No API key of any kind is required — 52 of 57 operations are anonymous, and the
+    5 OAuth2-protected ones need a token from POST /auth/login for which no sample credential is
+    documented.
+test_endpoints:
+  note: >-
+    The /io/* family exists to exercise an HTTP client against a real server. Read from the live
+    contract at https://api.apidash.dev/openapi.json.
+  entries:
+  - operation: delayed_request_io_delay_get
+    path: GET /io/delay
+    purpose: Simulate a slow response. `wait` query parameter, default 5 seconds.
+  - operation: form_to_rotate_text_chars_io_form_post
+    path: POST /io/form
+    purpose: Exercise multipart form-data submission.
+  - operation: create_file_io_filesize_post
+    path: POST /io/filesize
+    purpose: Exercise file upload and report the received size.
+  - operation: analyze_img_file_io_img_post
+    path: POST /io/img
+    purpose: Exercise image upload.
+  - operation: head_request_io_head_head
+    path: HEAD /io/head
+    purpose: Exercise the HEAD verb.
+  - operation: octet_stream_request_io_octet_stream_post
+    path: POST /io/octet-stream
+    purpose: Exercise a raw application/octet-stream body.
+  - operation: create_user_io_user_create_post
+    path: POST /io/user/create
+    purpose: Exercise POST. Echo endpoint — nothing is persisted and no read-back exists.
+  - operation: update_user_io_user_update_put
+    path: PUT /io/user/update
+    purpose: Exercise PUT. Echo endpoint.
+  - operation: patch_user_io_user__username__patch
+    path: PATCH /io/user/{username}
+    purpose: Exercise PATCH. Echo endpoint.
+  - operation: delete_user_io_user__username__delete
+    path: DELETE /io/user/{username}
+    purpose: Exercise DELETE. Echo endpoint.
+  - operation: sse_events_sse_events__count__get
+    path: GET /sse/events/{count}
+    purpose: Emit a bounded Server-Sent Events stream for testing streaming response handling.
+published_test_targets:
+  source: https://github.com/foss42/apidash/blob/main/doc/dev_guide/api_endpoints_for_testing.md
+  note: >-
+    The API Dash repository publishes a curated list of endpoints for exercising the CLIENT. Only
+    the ones on the provider's own hosts are recorded here; the third-party targets in that file
+    (reqres.in, badssl.com, sse.dev and others) belong to other operators.
+  entries:
+  - {purpose: HTTP GET / POST / form-data / file upload, url: 'https://api.apidash.dev/docs'}
+  - {purpose: JSON response, url: 'https://api.apidash.dev/openapi.json'}
+time_simulation: null
+fixtures:
+  sample_dataset: >-
+    GET /users, GET /users/{user_id} and GET /profile return a fixed sample user dataset
+    (UserModel / UserListResponseModel) suitable as stable test fixtures.

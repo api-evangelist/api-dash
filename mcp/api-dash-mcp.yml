@@ -1,0 +1,56 @@
+generated: '2026-09-02'
+method: searched
+source: https://github.com/foss42/mcp
+status: published
+ownership_note: >-
+  The server is branded "foss42 MCP Server", not "API Dash MCP". It is recorded here because
+  foss42 is the organization that builds API Dash and publishes the API Dash APIs
+  (foss42/api, whose repository homepage IS https://api.apidash.dev/docs), and this server
+  exposes the SAME foss42-core capability set — country data, text/case conversion, number and
+  date humanization — that the REST surface at api.apidash.dev exposes. It is a sibling
+  projection of one data core, not a third-party wrapper.
+server:
+  name: foss42
+  repository: https://github.com/foss42/mcp
+  framework: FastMCP
+  license: Apache-2.0
+  transport: [stdio, streamable-http]
+  language: python
+  requires: Python 3.10+
+deployment:
+  mode: local-stdio
+  endpoint: null
+  install: 'claude mcp add foss42 -- /path/to/mcp/.venv/bin/python /path/to/mcp/server.py'
+  package: https://github.com/foss42/mcp
+  auth: none
+  verified: searched
+  note: >-
+    NO HOSTED ENDPOINT. The provider publishes no remote MCP URL an agent can POST to today.
+    server.py defaults to stdio; `--transport http --host 0.0.0.0 --port 8000` lets a USER
+    self-host it, and the endpoint is then http://<their-host>:<port>/mcp — an address the
+    operator creates, not one the provider serves. Recorded local-stdio for exactly that reason:
+    a human must install and run it on a machine before any agent can reach it. The server also
+    ships no PyPI/npm package; installation is a git clone plus a venv.
+tools:
+- name: get_country_info
+  description: Look up one or more countries by name, alias or ISO alpha-2/alpha-3 code and return only the requested fields (names, codes, flag, phone, stats, region, subdivisions).
+  source: https://github.com/foss42/mcp#get_country_info
+- name: search_countries
+  description: Find countries by partial name or by region/UN subregion when the exact name is unknown.
+  source: https://github.com/foss42/mcp#search_countries
+- name: transform_text
+  description: Convert text between naming conventions and other styles (lower, upper, capital, title, sentence, constant, camel_snake, pascal_snake, dot, kebab, and related identifier styles).
+  source: https://github.com/foss42/mcp#transform_text
+- name: humanize_number
+  description: Format a number as bytes, social-media shorthand, or an ordinal rank.
+  source: https://github.com/foss42/mcp#humanize_number
+- name: humanize_time
+  description: Render a timestamp as a human-relative phrase against a reference time.
+  source: https://github.com/foss42/mcp#humanize_time
+probe:
+  tools_list_attempted: false
+  reason: >-
+    No hosted endpoint exists to POST tools/list to. The tool set above is read verbatim from
+    the provider's own README rather than from a live tools/list, so the inputSchema of each
+    tool is recorded only as far as the README's Python signatures state it. Running the server
+    locally would return real schemas; that is a local execution, not a provider surface.

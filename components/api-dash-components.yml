@@ -1,0 +1,50 @@
+generated: '2026-09-02'
+method: searched
+source: https://pub.dev/publishers/apidash.dev/packages + https://github.com/foss42/apidash/tree/main/packages
+note: >-
+  Embeddable UI components, distinct from the SDKs in packages/api-dash-packages.yml. These are
+  Flutter widgets API Dash factored out of its own app and published under the verified pub.dev
+  publisher apidash.dev so any Flutter application can embed them. The loader is the Flutter/Dart
+  toolchain, not a script tag — there is no web component or JS element library here, and no
+  hosted/prebuilt embed surface.
+platform: flutter
+loader:
+  type: dart-package
+  install: dart pub add <package>
+families:
+- family: JSON rendering and editing
+  components:
+  - name: json_explorer
+    package: json_explorer
+    version: 0.1.2
+    published: '2024-11-28'
+    url: https://pub.dev/packages/json_explorer
+    description: Widget to render, view and interact with JSON, including search.
+    used_in: API Dash response viewer (40+ MIME type preview surface)
+  - name: json_field_editor
+    package: json_field_editor
+    version: 1.2.1
+    published: '2025-04-12'
+    url: https://pub.dev/packages/json_field_editor
+    description: JSON text editing widget with validation and syntax highlighting.
+    used_in: API Dash request body editor
+- family: Input assistance
+  components:
+  - name: multi_trigger_autocomplete_plus
+    package: multi_trigger_autocomplete_plus
+    version: 1.0.2
+    published: '2025-02-17'
+    url: https://pub.dev/packages/multi_trigger_autocomplete_plus
+    description: Trigger-based autocomplete widget supporting multiple trigger characters.
+    used_in: API Dash environment-variable suggestion entry
+- family: Design system
+  components:
+  - name: apidash_design_system
+    package: apidash_design_system
+    version: null
+    published: null
+    url: https://github.com/foss42/apidash/tree/main/packages/apidash_design_system
+    description: Design tokens, typography, themes, context extensions and base widgets.
+    note: >-
+      Workspace-only. Checked pub.dev on 2026-09-02 — not published there, so it is embeddable
+      only by path dependency inside a fork of the monorepo.

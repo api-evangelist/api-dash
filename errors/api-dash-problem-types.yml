@@ -1,0 +1,38 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/api-dash-openapi.yml
+format: vendor
+rfc9457: false
+summary:
+  declared_error_responses: 49
+  distinct_error_statuses:
+  - 422
+  operations_total: 57
+  operations_with_no_declared_error_response: 8
+note: 'DERIVED FROM THE CONTRACT ONLY, and the contract is thin on errors: the spec declares exactly one
+  error status (422) and declares it on 49 of 57 operations. No 4xx for authentication or authorization
+  is declared anywhere, even on the five operations that carry an OAuth2 security requirement, so an agent
+  reading this spec cannot tell what an unauthenticated call returns. No 429 and no 5xx are declared either.
+  Searched the provider''s docs for an error reference on 2026-09-02: the only published reference is
+  the generated Swagger UI at https://api.apidash.dev/docs, which shows the same 422 and nothing more.'
+undeclared_but_reachable:
+- status: 404
+  observed: '{"detail":"Not Found"}'
+  evidence: GET https://api.apidash.dev/.well-known/security.txt -> 404 application/json, probed 2026-09-02
+  note: Reachable and consistently shaped, but absent from the OpenAPI. Recorded as an observation, not
+    as a contract term.
+problems:
+- status: 422
+  title: Validation Error
+  schema: '#/components/schemas/HTTPValidationError'
+  media_type: application/json
+  operations: 49
+  example_operations:
+  - analyze_img_file_io_img_post
+  - camel_to_lower_case_case_camel2lower_get
+  - create_user_io_user_create_post
+  - delayed_request_io_delay_get
+  - delete_user_io_user__username__delete
+  note: 'FastAPI RequestValidationError envelope: {"detail":[{"loc":[...],"msg":"...","type":"..."}]}.
+    It is NOT RFC 9457 problem+json - there is no type/title/status/detail/instance member set and the
+    media type is application/json.'

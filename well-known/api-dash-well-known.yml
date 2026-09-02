@@ -1,0 +1,51 @@
+generated: '2026-09-02'
+method: probed
+source: live GET of the named /.well-known/ path list on every host in apis.yml + OpenAPI servers[]
+hit_count: 0
+note: >-
+  NO POINTER EMITTED. Neither host serves a /.well-known/ document. The two hosts fail
+  differently and the distinction matters: apidash.dev is a single-page app whose edge answers
+  HTTP 200 with the identical 42,967-byte HTML shell for EVERY path, including a random control
+  path that cannot exist, so every 200 below on that host is a soft-404 and none of them is a
+  document. api.apidash.dev is a FastAPI app that returns an honest JSON 404 on every
+  /.well-known/ path. Per the pipeline rule, a file documenting an absence must not be scored as
+  a presence, so no WellKnown / SecurityTxt pointer is wired from this manifest.
+hosts:
+- host: https://apidash.dev
+  soft_404_control:
+    path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 200
+    bytes: 42967
+    content_type: text/html; charset=utf-8
+    verdict: catch-all — every path returns the SPA shell; all 200s on this host are soft-404s
+  path_echo_control: passed
+  documents: []
+  probes:
+  - {path: /.well-known/security.txt, status: 200, bytes: 42967, verdict: soft-404-html, file: null}
+  - {path: /.well-known/openid-configuration, status: 200, bytes: 42967, verdict: soft-404-html, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 200, bytes: 42967, verdict: soft-404-html, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 200, bytes: 42967, verdict: soft-404-html, file: null}
+  - {path: /.well-known/api-catalog, status: 200, bytes: 42967, verdict: soft-404-html, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 200, bytes: 42967, verdict: soft-404-html, file: null}
+  - {path: /.well-known/aauth-resource.json, status: 200, bytes: 42967, verdict: soft-404-html, file: null}
+  - {path: /.well-known/agent-card.json, status: 200, bytes: 42967, verdict: soft-404-html, file: null}
+  - {path: /.well-known/agent.json, status: 200, bytes: 42967, verdict: soft-404-html, file: null}
+- host: https://api.apidash.dev
+  soft_404_control:
+    path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 22
+    content_type: application/json
+    verdict: honest 404 — this host does not path-echo
+  path_echo_control: passed
+  documents: []
+  probes:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/aauth-resource.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}

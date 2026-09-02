@@ -1,0 +1,10 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/api-dash-openapi.yml
+schemes:
+- name: OAuth2PasswordBearer
+  source: openapi/api-dash-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: /login
+scopes: []

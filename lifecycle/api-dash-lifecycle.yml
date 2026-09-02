@@ -1,0 +1,66 @@
+generated: '2026-09-02'
+method: searched
+source: https://github.com/foss42/apidash (CHANGELOG.md, ROADMAP.md, releases, pubspec.yaml) + https://api.apidash.dev/openapi.json
+scope: >-
+  Covers BOTH surfaces this company ships, because they version independently: the API Dash
+  desktop/mobile client (semver in pubspec.yaml, distributed as OS installers) and the API Dash
+  APIs at api.apidash.dev (info.version in the OpenAPI, no versioned URL path).
+client:
+  versioning:
+    scheme: semver
+    current: 0.5.0+5
+    source: https://github.com/foss42/apidash/blob/main/pubspec.yaml
+    note: Pre-1.0. The version on main is 0.5.0+5 as of 2026-09-02.
+  releases:
+    url: https://github.com/foss42/apidash/releases
+    latest_tag: v0.3.0
+    latest_published: '2023-11-29'
+    count: 3
+    note: >-
+      RELEASE DRIFT, recorded as found and probed 2026-09-02 via the GitHub releases API. Only
+      three tagged releases exist (v0.1.0 2023-03-27, v0.2.0 2023-05-04, v0.3.0 2023-11-29), while
+      the repository was last pushed 2026-09-01 and CHANGELOG.md carries a "v0.4.0 [iOS Release]"
+      and a "v0.5.0 [WIP]" section that have no corresponding tag. INSTALLATION.md sends every
+      platform to /releases/latest, so a user following the provider's own install instructions
+      downloads v0.3.0. This is a distribution gap, not an abandonment signal — the source tree is
+      active — but it is the single most consequential lifecycle fact about this provider.
+  changelog:
+    url: https://github.com/foss42/apidash/blob/main/CHANGELOG.md
+    dated: partial
+    note: v0.1.0/v0.2.0/v0.3.0 carry dates; v0.4.0 and v0.5.0 carry a label instead of a date.
+  roadmap:
+    url: https://github.com/foss42/apidash/blob/main/ROADMAP.md
+    note: >-
+      A genuinely published, maintained roadmap with L1/L2 priority tiers and every item linked to
+      its issue or discussion. Open L1 items as of 2026-09-02 include gRPC support, HAR/Hurl/OpenAPI
+      importers and post-processing scripts.
+  support_policy:
+    url: https://github.com/foss42/apidash/blob/main/SECURITY.md
+    note: >-
+      SECURITY.md asks users to keep to the latest version but states no supported-version matrix
+      and no EOL policy for older releases.
+api:
+  versioning:
+    scheme: document-version-only
+    current: 0.0.4
+    source: https://api.apidash.dev/openapi.json (info.version)
+    url_versioning: false
+    note: >-
+      No version segment in any path and no version header is documented. info.version 0.0.4 is the
+      only version signal a consumer has, and it is not negotiable at call time — a breaking change
+      would arrive unannounced on the same URLs.
+  changelog: null
+  status_page: null
+  sla: null
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecated_operations: []
+  note: >-
+    Searched the repositories and docs on 2026-09-02 for a deprecation or sunset policy and found
+    none, for either surface. No operation in the OpenAPI carries `deprecated: true`, and no
+    RFC 8594 Deprecation/Sunset header is documented.
+status_page: null
+status_page_note: >-
+  No status page is published for api.apidash.dev. Searched status.apidash.dev and the docs;
+  nothing. NO StatusPage POINTER IS WIRED — recording the absence, not claiming the surface.

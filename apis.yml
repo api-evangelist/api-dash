@@ -10,17 +10,23 @@ description: >-
   and Insomnia with an active open source community.
 type: Index
 deliveryModel:
-  model: unknown
-  open_source: unknown
-  commercial: true
-  callable_host: false
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  model: open-source
+  open_source: true
+  license: Apache-2.0
+  commercial: false
+  callable_host: true
+  label: Open source (Apache-2.0), with a free keyless hosted API
+  confidence: high
   source:
-  - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
-  method: derived
+  - https://github.com/foss42/apidash/blob/main/LICENSE
+  - https://github.com/foss42/api
+  - https://api.apidash.dev/openapi.json
+  note: >-
+    Corrected 2026-09-02. The prior value read "repository-unlicensed" and commercial:true; the
+    GitHub API reports Apache-2.0 on both foss42/apidash and foss42/api, and callable_host is now
+    true because a live keyless REST API is served at https://api.apidash.dev.
+  generated: '2026-09-02'
+  method: searched
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -49,7 +55,7 @@ tags_raw:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/api-dash/refs/heads/main/apis.yml
 created: '2026-03-25'
-modified: '2026-04-19'
+modified: '2026-09-02'
 specificationVersion: '0.23'
 apis:
 - aid: api-dash:api-dash
@@ -60,6 +66,7 @@ apis:
     WebSocket with code generation, folder organization, and rich response
     visualization.
   humanURL: https://apidash.dev
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/api-dash.png
   tags:
   - API Client
   - Flutter
@@ -74,14 +81,59 @@ apis:
   - Mobile
   properties:
   - type: Documentation
-    url: https://github.com/foss42/apidash#readme
+    url: https://github.com/foss42/apidash/tree/main/doc
   - type: GitHubRepository
     url: https://github.com/foss42/apidash
   - type: GettingStarted
-    url: https://github.com/foss42/apidash#installation
-  - url: graphql/api-dash-graphql.md
-    type: GraphQL
+    url: https://github.com/foss42/apidash/blob/main/INSTALLATION.md
+- aid: api-dash:api-dash-apis
+  name: API Dash APIs
+  description: >-
+    The API Dash APIs are a free, keyless, open-source REST utility API published by foss42
+    alongside the API Dash client and served from the company's own host at api.apidash.dev.
+    OpenAPI 3.1.0, 57 operations across eight tags: country data (ISO 3166-1 codes, names,
+    official names, flags, geographic and demographic data, subdivisions), text conversion,
+    case conversion, humanization of numbers and dates, a purpose-built /io family for
+    exercising an HTTP client (delay, multipart, file upload, HEAD, octet-stream, full verb
+    coverage), a Server-Sent Events stream, and OAuth2 password-flow login over a sample user
+    dataset. 52 of the 57 operations require no credential of any kind.
+  humanURL: https://api.apidash.dev/docs
+  baseURL: https://api.apidash.dev
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/api-dash.png
+  tags:
+  - API Client
+  - Open-Source
+  - Country Data
+  - Text Conversion
+  - Testing
+  tags_raw:
+  - API Client
+  - Open Source
+  - Country Data
+  - Text Conversion
+  - Testing
+  properties:
+  - type: OpenAPI
+    url: openapi/api-dash-openapi.yml
+  - type: OpenAPI
+    url: openapi/_original/api-dash-openapi.json
+  - type: APIReference
+    url: https://api.apidash.dev/docs
+  - type: Documentation
+    url: https://api.apidash.dev/redoc
+  - type: GitHubRepository
+    url: https://github.com/foss42/api
+  - type: Overlay
+    url: overlays/api-dash-openapi-overlay.yaml
+  - type: ToolCrosswalk
+    url: mcp/api-dash-tool-crosswalk.yml
 common:
+- type: AgenticAccess
+  url: agentic-access/api-dash-agentic-access.yml
+- type: OAuthScopes
+  url: scopes/api-dash-scopes.yml
+- type: Authentication
+  url: authentication/api-dash-authentication.yml
 - type: IssueTracker
   url: https://github.com/foss42/apidash/issues
 - type: Releases
@@ -158,10 +210,48 @@ common:
     description: >-
       Import and export OpenAPI specifications for structured API
       request collection management.
-- type: Integrations
-  url: https://apidash.dev/integrations
-- type: LlmsText
-  url: https://apidash.dev/llms.txt
+- type: Packages
+  url: packages/api-dash-packages.yml
+- type: SDKs
+  url: packages/api-dash-packages.yml
+- type: Components
+  url: components/api-dash-components.yml
+- type: MCPServer
+  url: mcp/api-dash-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/api-dash-llms.txt
+- type: Overlay
+  url: overlays/api-dash-openapi-overlay.yaml
+- type: Conformance
+  url: conformance/api-dash-conformance.yml
+- type: ErrorCatalog
+  url: errors/api-dash-problem-types.yml
+- type: Conventions
+  url: conventions/api-dash-conventions.yml
+- type: DataModel
+  url: data-model/api-dash-data-model.yml
+- type: Lifecycle
+  url: lifecycle/api-dash-lifecycle.yml
+- type: ChangeLog
+  url: changelog/api-dash-changelog.yml
+- type: Sandbox
+  url: sandbox/api-dash-sandbox.yml
+- type: RateLimits
+  url: rate-limits/api-dash-rate-limits.yml
+- type: Plans
+  url: plans/api-dash-plans-pricing.yml
+- type: VulnerabilityDisclosure
+  url: security/api-dash-vulnerability-disclosure.yml
+- type: APIReference
+  url: https://api.apidash.dev/docs
+- type: Roadmap
+  url: https://github.com/foss42/apidash/blob/main/ROADMAP.md
+- type: PrivacyPolicy
+  url: https://apidash.dev/privacy/
+- type: GettingStarted
+  url: https://github.com/foss42/apidash/blob/main/INSTALLATION.md
 integrations:
 - name: logo
 - name: API Dash screenshot
@@ -173,3 +263,9 @@ integrations:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+
+x-enrichment:
+  date: '2026-09-02'
+  status: enriched
+  artifacts_added: 26
+  pass: local-v1

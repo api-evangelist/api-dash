@@ -1,0 +1,131 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/api-dash-openapi.yml + https://github.com/foss42/apidash (AGENTS.md, doc/user_guide/, packages/)
+note: >-
+  API Dash sits on both sides of this artifact and the two must not be blurred, so they are kept
+  in separate blocks. `api_standards` is what the PROVIDER'S OWN API at api.apidash.dev conforms
+  to as a contract. `client_interoperability` is what the API DASH CLIENT can speak as a
+  consumer — the interchange formats it imports/exports and the wire protocols it can drive.
+  The second block is the more interesting half for this company and it is the domain-standard
+  signature for its market: an API client's market standards ARE the interchange formats, and
+  API Dash implements them as first-party Dart packages published to pub.dev, which is evidence
+  a marketing claim could not supply. It earns no `Compliance` pointer either way: the provider
+  publishes no certification program (no SOC 2 / ISO 27001 / trust center), and asserting one
+  from these would be a fabrication.
+api_standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: https://api.apidash.dev/openapi.json declares openapi 3.1.0 with 57 operations, 9 component schemas, all operations carrying a unique operationId, summary and tag.
+- id: oauth2
+  conforms: partial
+  evidence: >-
+    components.securitySchemes.OAuth2PasswordBearer is type oauth2 with a `password` flow, applied
+    to 5 operations. It declares zero scopes, and its tokenUrl is "/login" while the operation that
+    mints the token is POST /auth/login — a client resolving the declared tokenUrl against the
+    server base would hit a path that does not exist. Recorded partial for that reason.
+- id: oidc
+  conforms: false
+  evidence: probed https://api.apidash.dev/.well-known/openid-configuration on 2026-09-02 — HTTP 404.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: false
+  evidence: probed https://api.apidash.dev/.well-known/oauth-authorization-server on 2026-09-02 — HTTP 404.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Error bodies are the FastAPI validation envelope {"detail":[{"loc","msg","type"}]} served as
+    application/json, not application/problem+json. See errors/api-dash-problem-types.yml.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: probed /.well-known/security.txt on both apidash.dev (soft-404 SPA shell) and api.apidash.dev (404) on 2026-09-02.
+- id: sse-server-sent-events
+  conforms: true
+  evidence: GET /sse/events/{count} (operationId sse_events_sse_events__count__get) publishes an SSE stream endpoint in the contract.
+- id: pagination
+  conforms: false
+  evidence: No operation declares limit/offset/cursor/page parameters. /users returns the full sample collection unpaged.
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key parameter or header appears in any of the 57 operations, and no idempotency contract is documented.
+- id: asyncapi
+  conforms: false
+  evidence: probed https://api.apidash.dev/asyncapi.yaml on 2026-09-02 — HTTP 404. No AsyncAPI document is published for the SSE endpoint.
+- id: graphql
+  conforms: false
+  evidence: probed https://api.apidash.dev/graphql on 2026-09-02 — HTTP 404. API Dash is a GraphQL client, not a GraphQL API publisher.
+- id: mcp
+  conforms: true
+  evidence: >-
+    foss42 publishes an MCP server (github.com/foss42/mcp, FastMCP, 5 tools) over the same
+    foss42-core capability set. Local stdio only — no hosted endpoint. See mcp/api-dash-mcp.yml.
+- id: iso-3166-1
+  conforms: true
+  evidence: >-
+    /country/codes, /country/name and /country/officialname resolve on ISO 3166-1 alpha-2 and
+    alpha-3 codes; /country/subdivisions returns ISO 3166-2 style subdivision codes.
+client_interoperability:
+- id: openapi
+  conforms: true
+  role: consumer
+  evidence: >-
+    OpenAPI-assisted import is a mainline feature per AGENTS.md ("OpenAPI-assisted import —
+    Supported through Dashbot services"); the generic ImportFormat enum does not yet carry it.
+- id: postman-collection-v2.1
+  conforms: true
+  role: consumer
+  evidence: >-
+    First-party Dart package `postman` (pub.dev, publisher apidash.dev, v0.1.1) — "Seamlessly
+    convert Postman Collection Format v2.1 to Dart and vice versa"; wired through lib/importer/.
+- id: har-1.2
+  conforms: true
+  role: both
+  evidence: >-
+    First-party Dart package `har` (packages/har, "HAR 1.2 models and utilities"); HAR is both an
+    import format and a code-generation target (CHANGELOG v0.3.0 ships HAR export of collections).
+- id: insomnia-export
+  conforms: true
+  role: consumer
+  evidence: First-party Dart package `insomnia_collection` (packages/insomnia_collection); Insomnia import is a mainline feature per AGENTS.md.
+- id: curl
+  conforms: true
+  role: both
+  evidence: First-party Dart package `curl_parser` (pub.dev, publisher apidash.dev, v0.1.2) — parse a cURL command to Dart and back. cURL is also a codegen target.
+- id: graphql-over-http
+  conforms: true
+  role: consumer
+  evidence: 'AGENTS.md mainline baseline: "GraphQL requests — Supported through HTTP POST body construction". Executed by packages/better_networking.'
+- id: rfc6455-websocket
+  conforms: true
+  role: consumer
+  evidence: 'AGENTS.md mainline baseline: "WebSocket requests — Supported". User guide at doc/user_guide/websocket_user_guide.md.'
+- id: mqtt
+  conforms: true
+  role: consumer
+  evidence: doc/user_guide/mqtt_user_guide.md documents MQTT v3.1.1/v5 sessions, topics, LWT, reason codes and v5 request/response in the client UI.
+- id: sse-server-sent-events
+  conforms: true
+  role: consumer
+  evidence: 'AGENTS.md: "SSE and streaming HTTP responses — Supported through streaming MIME detection".'
+- id: rfc7617-http-basic-auth
+  conforms: true
+  role: consumer
+  evidence: doc/user_guide/authentication.md documents Basic auth fields in the request auth tab.
+- id: rfc6750-oauth2-bearer
+  conforms: true
+  role: consumer
+  evidence: doc/user_guide/authentication.md documents Bearer and OAuth 2.0 auth types; OAuth callback handling lives in packages/better_networking.
+- id: rfc7616-http-digest-auth
+  conforms: true
+  role: consumer
+  evidence: doc/user_guide/authentication.md documents Digest auth fields.
+- id: oauth-1.0a
+  conforms: true
+  role: consumer
+  evidence: doc/user_guide/authentication.md documents OAuth 1.0 fields (oauth1-fields.png).
+- id: jwt
+  conforms: true
+  role: consumer
+  evidence: doc/user_guide/authentication.md documents JWT auth fields.
+- id: grpc
+  conforms: false
+  role: consumer
+  evidence: 'Open on the roadmap, not shipped: ROADMAP.md L1 "gRPC support (issues/14)" is unchecked, and AGENTS.md does not list it in the mainline baseline.'

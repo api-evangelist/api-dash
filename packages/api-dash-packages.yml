@@ -1,0 +1,151 @@
+generated: '2026-09-02'
+method: searched
+source: https://pub.dev/publishers/apidash.dev/packages
+note: >-
+  API Dash is a Flutter/Dart monorepo (foss42/apidash). Its workspace packages are published
+  to pub.dev under the VERIFIED PUBLISHER apidash.dev, which is what establishes first-party
+  ownership here — not the repository link alone. Versions and publish dates read from
+  pub.dev/api/packages/<name> on 2026-09-02. `har` and `insomnia_collection` live in the same
+  monorepo but carry no pub.dev publisher, so they are recorded official:false pending
+  verification. The API Dash desktop/mobile app itself sets `publish_to: "none"` in pubspec.yaml
+  and is distributed as OS installers from GitHub Releases, not from a package registry.
+packages:
+- language: dart
+  registry: pub.dev
+  name: better_networking
+  url: https://pub.dev/packages/better_networking
+  install: dart pub add better_networking
+  official: true
+  publisher: apidash.dev
+  version: 0.0.3
+  published: '2025-09-13'
+  description: Simplified Networking. Support for sending REST & GraphQL API requests.
+- language: dart
+  registry: pub.dev
+  name: genai
+  url: https://pub.dev/packages/genai
+  install: dart pub add genai
+  official: true
+  publisher: apidash.dev
+  version: 0.0.1
+  published: '2025-08-31'
+  description: Unified Dart/Flutter package for working with multiple Generative AI providers.
+- language: dart
+  registry: pub.dev
+  name: json_field_editor
+  url: https://pub.dev/packages/json_field_editor
+  install: dart pub add json_field_editor
+  official: true
+  publisher: apidash.dev
+  version: 1.2.1
+  published: '2025-04-12'
+  description: JSON field editor widget with validation and highlighting.
+- language: dart
+  registry: pub.dev
+  name: multi_trigger_autocomplete_plus
+  url: https://pub.dev/packages/multi_trigger_autocomplete_plus
+  install: dart pub add multi_trigger_autocomplete_plus
+  official: true
+  publisher: apidash.dev
+  version: 1.0.2
+  published: '2025-02-17'
+  description: Flutter widget adding trigger-based autocomplete functionality.
+- language: dart
+  registry: pub.dev
+  name: curl_parser
+  url: https://pub.dev/packages/curl_parser
+  install: dart pub add curl_parser
+  official: true
+  publisher: apidash.dev
+  version: 0.1.2
+  published: '2025-01-11'
+  description: Parse a cURL command to a Dart object and convert a Dart object back to cURL.
+- language: dart
+  registry: pub.dev
+  name: seed
+  url: https://pub.dev/packages/seed
+  install: dart pub add seed
+  official: true
+  publisher: apidash.dev
+  version: 0.0.3
+  published: '2025-01-11'
+  description: Foundational package of reusable building-block models (NameValueModel, FormDataModel).
+- language: dart
+  registry: pub.dev
+  name: postman
+  url: https://pub.dev/packages/postman
+  install: dart pub add postman
+  official: true
+  publisher: apidash.dev
+  version: 0.1.1
+  published: '2024-12-23'
+  description: Convert Postman Collection Format v2.1 to Dart and back.
+- language: dart
+  registry: pub.dev
+  name: json_explorer
+  url: https://pub.dev/packages/json_explorer
+  install: dart pub add json_explorer
+  official: true
+  publisher: apidash.dev
+  version: 0.1.2
+  published: '2024-11-28'
+  description: Flutter widget to render, view and interact with JSON.
+- language: dart
+  registry: pub.dev
+  name: har
+  url: https://pub.dev/packages/har
+  install: dart pub add har
+  official: false
+  publisher: null
+  version: 0.0.1-dev.1
+  published: '2025-06-22'
+  description: Utilities and classes to work with HAR files (marked WIP by the author).
+  note: >-
+    Lives in packages/har of foss42/apidash but has no pub.dev verified publisher, so
+    first-party status is not established from the registry. Pre-release version.
+- language: dart
+  registry: pub.dev
+  name: insomnia_collection
+  url: https://pub.dev/packages/insomnia_collection
+  install: dart pub add insomnia_collection
+  official: false
+  publisher: null
+  version: 0.0.1-dev.1
+  published: '2025-01-09'
+  description: Utilities and classes to work with Insomnia API client collections.
+  note: >-
+    Lives in packages/insomnia_collection of foss42/apidash; pub.dev repository field points at
+    a maintainer's personal namespace and there is no verified publisher. Pre-release version.
+- language: dart
+  registry: null
+  name: apidash_core
+  url: https://github.com/foss42/apidash/tree/main/packages/apidash_core
+  install: null
+  official: true
+  version: null
+  published: null
+  note: >-
+    Workspace-only package (import/export adapters, environment model). Checked pub.dev on
+    2026-09-02 and it is not published there — path-dependency inside the monorepo only.
+- language: dart
+  registry: null
+  name: apidash_design_system
+  url: https://github.com/foss42/apidash/tree/main/packages/apidash_design_system
+  install: null
+  official: true
+  version: null
+  published: null
+  note: >-
+    Workspace-only package (design tokens, typography, themes). Checked pub.dev on 2026-09-02
+    and it is not published there — path-dependency inside the monorepo only.
+distributions:
+- channel: github-releases
+  url: https://github.com/foss42/apidash/releases/latest
+  formats: [windows-installer-x64, macos-universal-dmg, deb-x64, deb-arm64, rpm-x86_64, rpm-aarch64]
+  version: v0.3.0
+  published: '2023-11-29'
+  note: >-
+    DECAY SIGNAL, recorded as found: the newest tagged GitHub Release is v0.3.0 (2023-11-29),
+    while pubspec.yaml on main reads version 0.5.0+5 and the repository was pushed 2026-09-01.
+    INSTALLATION.md routes every platform at /releases/latest, so the published installer a user
+    downloads is two minor versions behind the source tree. Probed 2026-09-02.

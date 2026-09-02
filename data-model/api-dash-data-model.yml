@@ -1,0 +1,107 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/api-dash-openapi.yml
+note: 'Entity graph derived from components.schemas $ref links. This API is a stateless utility surface
+  - country lookup, text/case conversion, humanization and HTTP-client exercise endpoints - so it has
+  almost no persistent domain model. Only User carries an identifier, and even the /io/user/* writes are
+  echo endpoints for exercising POST/PUT/PATCH/DELETE rather than a stored collection: there is no GET
+  for a user created through /io/user/create. 5 of the 9 schemas are validation-envelope or request-body
+  wrappers, not domain entities.'
+summary:
+  schemas: 9
+  domain_entities: 3
+  envelope_or_body_wrappers: 6
+  entities_with_an_identifier: 1
+entities:
+- name: Body_analyze_img_file_io_img_post
+  type: object
+  title: Body_analyze_img_file_io_img_post
+  properties:
+  - imfile
+  - token
+  required:
+  - imfile
+  - token
+- name: Body_form_to_rotate_text_chars_io_form_post
+  type: object
+  title: Body_form_to_rotate_text_chars_io_form_post
+  properties:
+  - text
+  - sep
+  - times
+  required:
+  - text
+  - sep
+  - times
+- name: DateUnitsEnum
+  type: string
+  title: DateUnitsEnum
+  properties: []
+  required: []
+- name: HTTPValidationError
+  type: object
+  title: HTTPValidationError
+  properties:
+  - detail
+  required: []
+- name: SystemEnum
+  type: string
+  title: SystemEnum
+  properties: []
+  required: []
+- name: TextModel
+  type: object
+  title: TextModel
+  properties:
+  - text
+  required:
+  - text
+- name: UserListResponseModel
+  type: object
+  title: UserListResponseModel
+  properties:
+  - data
+  required:
+  - data
+- name: UserModel
+  type: object
+  title: UserModel
+  properties:
+  - id
+  - name
+  - phone
+  - email
+  - country
+  required:
+  - id
+  - name
+  - email
+  - country
+- name: ValidationError
+  type: object
+  title: ValidationError
+  properties:
+  - loc
+  - msg
+  - type
+  required:
+  - loc
+  - msg
+  - type
+relationships:
+- from: HTTPValidationError
+  to: ValidationError
+  kind: has_many
+  via: detail
+- from: UserListResponseModel
+  to: UserModel
+  kind: has_many
+  via: data
+identifiers:
+- entity: UserModel
+  field: id
+  type: integer
+  read_operations:
+  - read_user_by_id_users__user_id__get
+  - read_all_users_users_get
+  note: Sample dataset. /io/user/{username} keys on username instead, and is an echo endpoint.

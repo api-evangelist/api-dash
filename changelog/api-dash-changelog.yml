@@ -1,0 +1,71 @@
+generated: '2026-09-02'
+method: searched
+source: https://github.com/foss42/apidash/blob/main/CHANGELOG.md
+docs: https://github.com/foss42/apidash/releases
+scheme: semver
+current_version: 0.5.0+5
+current_version_source: https://github.com/foss42/apidash/blob/main/pubspec.yaml
+note: >-
+  Two changelogs exist and they disagree, so both are recorded. CHANGELOG.md is the maintained
+  narrative and runs ahead to v0.5.0; GitHub Releases stops at v0.3.0 (2023-11-29). Dates below
+  are taken from CHANGELOG.md where it states one and from the releases API otherwise; the two
+  most recent entries carry a bracket label instead of a date in the provider's own file and are
+  recorded `date: null` rather than being assigned one.
+entries:
+- version: v0.5.0
+  date: null
+  label: WIP
+  tagged: false
+  breaking: []
+  additions:
+  - Workspace (directory) to persist all data locally at a chosen filesystem location
+  - Environment variables
+  - GraphQL support
+  - Import requests from cURL and Postman Collection v2.1
+  - Request and response history
+  - Request cancellation
+  - Disable SSL verification
+  - Code generation for Swift, hyper and others
+- version: v0.4.0
+  date: null
+  label: iOS Release
+  tagged: false
+  breaking: []
+  additions:
+  - Save-on-close prompt with a matching setting
+  - Windows visual refresh and Arch Linux support
+  - Checkboxes for URL params and headers
+  - SVG response support
+  - Multipart request and form-data support
+  - Dio code generator; Dart http codegen rewritten on dart code_builder
+  - Request content-type override and expanded header suggestions
+  - Mobile platform support
+- version: v0.3.0
+  date: '2023-11-29'
+  tagged: true
+  breaking: []
+  highlights:
+  - Migrated the project to Dart 3
+  - Collections and folders for organizing requests
+  - Tested code generators for cURL, HAR, Python, JavaScript, node.js and Kotlin
+  - Interactive JSON response viewer with a find box
+  - HAR export of collections and folders, plus full data export
+  - PDF, audio (wav/mp3) and APNG response support
+- version: v0.2.0
+  date: '2023-05-04'
+  tagged: true
+  breaking: []
+  highlights:
+  - New UI with a Settings screen and dark mode
+  - Request rename and app-wide emoji support
+  - Save any response body to Downloads
+  - Window size/position persisted on macOS and Windows
+  - Linux .deb and .rpm builds
+- version: v0.1.0
+  date: '2023-03-27'
+  tagged: true
+  highlights: [Initial release]
+api_changelog: null
+api_changelog_note: >-
+  The API Dash APIs at api.apidash.dev publish no changelog of their own. info.version reads 0.0.4
+  and there is no dated history for it. Searched foss42/api on 2026-09-02 — no CHANGELOG file.

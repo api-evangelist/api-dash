@@ -1,0 +1,77 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the API Dash APIs
+  version: 1.0.0
+extends: openapi/api-dash-openapi.yml
+x-provenance:
+  generated: '2026-09-02'
+  method: generated
+  source: openapi/_original/api-dash-openapi.json
+  note: >-
+    Every action below records something API Evangelist measured against the live API on
+    2026-09-02, applied as an overlay so the harvested contract at openapi/_original/ is never
+    mutated. Nothing here invents behaviour: the servers[] entry is the host the provider's own
+    dev guide and the foss42/api repository homepage name, and each x- extension points at the
+    artifact in this repo carrying the evidence.
+actions:
+- target: $.info
+  description: Record where this document was harvested from and what it describes.
+  update:
+    x-apievangelist-source: https://api.apidash.dev/openapi.json
+    x-apievangelist-harvested: '2026-09-02'
+    x-apievangelist-provider: api-dash
+    x-apievangelist-subject: >-
+      The API Dash APIs — the free, keyless, open-source utility API published by foss42 alongside
+      the API Dash client. Distinct from the API Dash desktop/mobile application.
+- target: $
+  description: >-
+    Add the production host. The published document ships NO servers[] block at all, which leaves
+    every path relative and unresolvable for any consumer that did not fetch the spec from the API
+    host itself. https://api.apidash.dev is named by the provider in
+    doc/dev_guide/api_endpoints_for_testing.md and is the repository homepage of foss42/api.
+  update:
+    servers:
+    - url: https://api.apidash.dev
+      description: Production
+- target: $.components.securitySchemes.OAuth2PasswordBearer
+  description: >-
+    Flag the token endpoint mismatch. The scheme declares tokenUrl "/login" but the operation that
+    mints a token is POST /auth/login, so a client resolving the declared value against the server
+    base gets a 404. Recorded rather than corrected — the overlay must not silently rewrite a
+    provider's contract into one they did not publish.
+  update:
+    x-apievangelist-finding: >-
+      tokenUrl "/login" does not resolve. The token-minting operation is
+      login_for_access_token_auth_login_post at POST /auth/login.
+    x-apievangelist-severity: high
+- target: $.paths['/auth/login'].post
+  description: Flag credentials carried in the query string.
+  update:
+    x-apievangelist-finding: >-
+      username and password are declared as QUERY parameters. Credentials in a URL are logged by
+      proxies, browsers and server access logs. A form or JSON body would avoid that.
+    x-apievangelist-severity: high
+- target: $.info
+  description: Cross-link the derived artifacts so an agent reading only the spec can find the rest.
+  update:
+    x-apievangelist-artifacts:
+      authentication: authentication/api-dash-authentication.yml
+      conventions: conventions/api-dash-conventions.yml
+      errors: errors/api-dash-problem-types.yml
+      data-model: data-model/api-dash-data-model.yml
+      conformance: conformance/api-dash-conformance.yml
+      rate-limits: rate-limits/api-dash-rate-limits.yml
+      sandbox: sandbox/api-dash-sandbox.yml
+      mcp: mcp/api-dash-mcp.yml
+      tool-crosswalk: mcp/api-dash-tool-crosswalk.yml
+      skills: skills/_index.yml
+    x-apievangelist-gaps:
+      declared_error_statuses: [422]
+      missing_error_statuses: [401, 403, 404, 429, 500]
+      pagination: none
+      idempotency: none
+      rate_limit_headers: none
+      note: >-
+        Not one 401 or 403 is declared, including on the five operations that carry the OAuth2
+        security requirement, so the contract does not tell an agent what an unauthenticated call
+        returns.

@@ -1,0 +1,150 @@
+generated: '2026-09-02'
+method: derived
+source: mcp/api-dash-mcp.yml + openapi/api-dash-openapi.yml
+note: 'The MCP server and the REST API are two projections of one library (foss42-core), not a proxy and
+  its origin: the MCP server runs entirely against bundled local data and makes NO network call to api.apidash.dev.
+  A crosswalk row therefore binds a tool to the REST operation covering the SAME capability; it does not
+  assert the tool calls that operation. Every operationId below was read programmatically out of the harvested
+  spec and asserted to exist; every tool name is verbatim from the provider''s MCP README.'
+surfaces:
+  openapi:
+    file: openapi/api-dash-openapi.yml
+    original: openapi/_original/api-dash-openapi.json
+    url: https://api.apidash.dev/openapi.json
+    operations: 57
+    gated: false
+  mcp:
+    repository: https://github.com/foss42/mcp
+    endpoint: null
+    tools: 5
+    gated: false
+    note: no hosted endpoint; tools/list could not be called remotely
+  graphql:
+    endpoint: null
+    note: probed https://api.apidash.dev/graphql on 2026-09-02 - HTTP 404. No GraphQL surface.
+crosswalk:
+- tool: get_country_info
+  category: country-data
+  rest:
+  - get_country_code_dictionary_country_codes_get
+  - get_country_data_country_data_get
+  - get_country_flag_country_flag_get
+  - get_country_name_country_name_get
+  - get_country_subdivisions_country_subdivisions_get
+  - get_official_country_name_country_officialname_get
+  binding: capability
+  confidence: high
+  note: One tool absorbs the whole /country/* family. The tool's `include` field (names, codes, flag,
+    phone, stats, region, subdivisions) maps onto these six REST endpoints - the clearest example in this
+    provider of MCP composing what REST splits.
+- tool: search_countries
+  category: country-data
+  rest:
+  - get_country_data_country_data_get
+  binding: capability
+  confidence: low
+  note: No REST search endpoint exists. Partial-name and region search is server-side logic in the MCP
+    tool over the same dataset /country/data exposes; a REST consumer must fetch and filter client-side.
+    Low because the binding is to the data, not to an operation.
+- tool: transform_text
+  category: text-conversion
+  rest:
+  - to_camel_case_case_camel_get
+  - to_camel_snake_case_case_camelsnake_get
+  - to_capital_case_case_capital_get
+  - to_capital_case_case_capital_post
+  - to_cobol_case_case_cobol_get
+  - to_constant_case_case_constant_get
+  - to_dot_case_case_dot_get
+  - to_flat_case_case_flat_get
+  - to_kebab_case_case_kebab_get
+  - to_lower_case_case_lower_get
+  - to_lower_case_case_lower_post
+  - to_pascal_case_case_pascal_get
+  - to_pascal_snake_case_case_pascalsnake_get
+  - to_sentence_case_case_sentence_get
+  - to_sentence_case_case_sentence_post
+  - to_snake_case_case_snake_get
+  - to_swap_case_case_swap_get
+  - to_title_case_case_title_get
+  - to_title_case_case_title_post
+  - to_train_case_case_train_get
+  - to_upper_case_case_upper_get
+  - to_upper_case_case_upper_post
+  binding: capability
+  confidence: medium
+  note: 'A single `style` enum replaces 22 forward case operations. Medium rather than high because the
+    two vocabularies are not identical: the three reverse conversions (/case/camel2lower, /case/snake2lower,
+    /case/kebab2lower) have no documented tool style and are listed under rest_only.'
+- tool: humanize_number
+  category: humanization
+  rest:
+  - humanize_bytes_humanize_bytes_get
+  - humanize_rank_humanize_rank_get
+  - humanize_social_humanize_social_get
+  binding: capability
+  confidence: high
+  note: The tool's three `style` values (bytes, social, rank) correspond exactly to these three endpoints.
+- tool: humanize_time
+  category: humanization
+  rest:
+  - humanize_time_humanize_time_get
+  binding: capability
+  confidence: high
+mcp_only:
+- tool: search_countries
+  reason: No REST equivalent. Partial-name / region search over the country dataset exists only as MCP
+    server logic; a REST consumer must fetch /country/data and filter locally.
+rest_only:
+- capability: text-conversion (non-case)
+  operations:
+  - phone_number_to_numeric_convert_phone2numeric_get
+  - to_leet_convert_leet_get
+  - to_mirror_convert_mirror_get
+  - to_slug_convert_slug_get
+  - to_upside_down_convert_upsidedown_get
+  reason: /convert/* slug, phone2numeric, leet, upsidedown and mirror have no MCP tool.
+- capability: case reversals
+  operations:
+  - camel_to_lower_case_case_camel2lower_get
+  - kebab_to_lower_case_case_kebab2lower_get
+  - snake_to_lower_case_case_snake2lower_get
+  reason: The identifier-to-prose reversals are REST-only; transform_text documents no matching style.
+- capability: io-testing
+  operations:
+  - analyze_img_file_io_img_post
+  - create_file_io_filesize_post
+  - create_user_io_user_create_post
+  - delayed_request_io_delay_get
+  - delete_user_io_user__username__delete
+  - form_to_rotate_text_chars_io_form_post
+  - head_request_io_head_head
+  - octet_stream_request_io_octet_stream_post
+  - patch_user_io_user__username__patch
+  - update_user_io_user_update_put
+  reason: The /io/* family exists to exercise an HTTP client - delay, form data, file upload, HEAD, octet-stream,
+    PUT/PATCH/DELETE verb coverage. It is deliberately protocol-shaped and has no agent-tool analogue.
+- capability: user-auth-and-data
+  operations:
+  - login_for_access_token_auth_login_post
+  - logout_auth_logout_post
+  - read_all_users_users_get
+  - read_random_profile_profile_get
+  - read_user_by_id_users__user_id__get
+  reason: OAuth2 password-flow login/logout and the sample user dataset are REST-only. The MCP server
+    ships no auth surface at all - it declares no API key and no network calls.
+- capability: streaming
+  operations:
+  - sse_events_sse_events__count__get
+  reason: Server-Sent Events streaming has no MCP tool; MCP tools are request/response.
+- capability: service-root
+  operations:
+  - welcome__get
+  reason: The API root returns a pointer to the Swagger UI; not a capability.
+coverage:
+  tools_named: 5
+  tools_bound: 5
+  mcp_only: 1
+  rest_operations_total: 57
+  rest_operations_with_a_tool: 32
+  rest_operations_without_a_tool: 25

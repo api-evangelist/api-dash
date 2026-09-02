@@ -1,0 +1,95 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/api-dash-openapi.yml + https://api.apidash.dev/docs
+subject: >-
+  The API Dash APIs at api.apidash.dev. This file describes the PROVIDER'S API, not the API Dash
+  client's own request semantics.
+authentication:
+  style: oauth2-password-bearer
+  scheme: OAuth2PasswordBearer
+  token_endpoint_declared: /login
+  token_endpoint_actual: POST /auth/login
+  applied_to: 5
+  of_operations: 57
+  scopes: 0
+  note: >-
+    52 of 57 operations carry no security requirement at all and are callable anonymously — the
+    country, case, convert, humanize, io and sse families are all open. The declared tokenUrl
+    ("/login") does not match the operation that mints the token (POST /auth/login), so a client
+    that resolves the declared value against the server base gets a 404. Recorded as found; see
+    authentication/api-dash-authentication.yml and conformance/.
+  docs: https://api.apidash.dev/docs
+parameters:
+  style: query-string
+  note: >-
+    Nearly every operation takes its input as query parameters, including the POST case
+    conversions and POST /auth/login, which takes `username` and `password` as QUERY parameters
+    rather than a form or JSON body. Only /io/form, /io/filesize and /io/img declare a requestBody
+    (multipart). Recorded because it is the single most surprising thing about calling this API,
+    and because putting a password in a query string is a credential-in-URL exposure a consumer
+    should know about before integrating.
+pagination:
+  supported: false
+  note: No limit/offset/cursor/page parameter appears on any operation. GET /users returns the whole sample collection.
+filtering_and_expansion:
+  supported: false
+  note: No sparse-fieldset, expand or include parameter is declared.
+metadata:
+  supported: false
+request_tracing:
+  request_id_header: null
+  note: No request-id or correlation header is documented, and none was observed on a live response.
+versioning:
+  scheme: document-version-only
+  current: 0.0.4
+  in_path: false
+  in_header: false
+  note: See lifecycle/api-dash-lifecycle.yml.
+error_envelope:
+  media_type: application/json
+  shape: '{"detail": [{"loc": [...], "msg": "...", "type": "..."}]}'
+  rfc9457: false
+  statuses_declared: [422]
+  cross_reference: errors/api-dash-problem-types.yml
+rate_limit_signaling:
+  headers: []
+  status_on_exhaustion: null
+  note: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header was returned on a live unauthenticated
+    call to GET https://api.apidash.dev/country/codes (probed 2026-09-02; response carried only
+    date, content-type, content-length and Cloudflare edge headers). No 429 is declared in the
+    contract. See rate-limits/api-dash-rate-limits.yml.
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    NO Idempotency-Key parameter or header exists on any of the 57 operations and no idempotency
+    contract is documented. NO `Idempotency` POINTER IS WIRED from this file — the pointer asserts
+    the provider supports idempotency, and this one does not.
+dry_run_mode:
+  supported: false
+  note: No preview/simulate/validate-only mode is offered.
+reversibility:
+  grade: na
+  reason: no-durable-write-surface
+  detail: >-
+    The API has four write-shaped operations — POST /io/user/create, PUT /io/user/update,
+    PATCH /io/user/{username}, DELETE /io/user/{username} — but they exist to let a developer
+    exercise POST/PUT/PATCH/DELETE against a real server, not to persist anything: there is no
+    GET that reads back a user created through /io/user/create, and the readable user collection
+    (/users, /users/{user_id}, /profile) is a separate fixed sample dataset those verbs do not
+    touch. Nothing an agent does here can be got wrong in a way that needs taking back, so there
+    is no reversal operation to document and no window to state. The remaining 53 operations are
+    pure functions over their inputs (case/convert/humanize) or reads (country, users, sse).
+  reversal_operations: []
+  windows: []
+  note: >-
+    `na` is recorded deliberately rather than a zero. Asserting a reversal window this provider
+    has never published would be the one error in this artifact that could cost a user real money,
+    and asserting a failure would misdescribe an API that has nothing to reverse.
+cross_references:
+  errors: errors/api-dash-problem-types.yml
+  lifecycle: lifecycle/api-dash-lifecycle.yml
+  authentication: authentication/api-dash-authentication.yml
+  rate_limits: rate-limits/api-dash-rate-limits.yml
+  scopes: scopes/api-dash-scopes.yml

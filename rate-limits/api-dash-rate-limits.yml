@@ -3,90 +3,41 @@ specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
 provider: API Dash
 providerId: api-dash
+generated: '2026-09-02'
+method: probed
+source: live unauthenticated GET https://api.apidash.dev/country/codes + https://api.apidash.dev/openapi.json
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - API Client
-  - Open Source
-  - Flutter
-  - Desktop
-  - Mobile
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the API Dash API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - API Dash
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - API Dash
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - API Dash
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - API Dash
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - API Dash
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+modified: '2026-09-02'
+limit_count: 0
+limits: []
+headers: {}
+responseCodes: {}
+description: >-
+  API Dash documents no rate limits, and its API returns no rate-limit signal at runtime. An honest
+  zero, measured two ways on 2026-09-02: the contract declares no 429 response on any of its 57
+  operations, and a live unauthenticated call returned no RateLimit-*, X-RateLimit-* or Retry-After
+  header. The response carried only date, content-type, content-length, server: cloudflare and
+  Cloudflare edge headers (cf-ray, cf-cache-status, alt-svc, nel/report-to). Cloudflare sits in
+  front of the origin and may enforce edge protection, but nothing the provider publishes tells a
+  consumer what that threshold is, so an agent has no runtime budget to plan against.
+supersedes:
+  what: >-
+    Five invented per-tier limits (10/100/1000 requests per minute, 1,000 and 100,000 per month),
+    an invented burst ceiling, an invented X-RateLimit-*/RateLimit-Policy header set and four
+    invented policy paragraphs, written by the 2026-05-04 bulk sweep and carrying method:generated.
+  why: >-
+    None of it was published by API Dash. It read as the provider's documented throttling contract
+    and would have taught an agent to expect headers this API does not send. Replaced with the
+    measured zero on 2026-09-02.
+evidence:
+- url: https://api.apidash.dev/country/codes
+  http_status: 200
+  observed_headers: [date, content-type, content-length, server, cf-cache-status, report-to, nel, cf-ray, alt-svc]
+  rate_limit_headers_present: false
+- url: https://api.apidash.dev/openapi.json
+  http_status: 200
+  declared_429_responses: 0
+  note: The only error status declared anywhere in the contract is 422.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
