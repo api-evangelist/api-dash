@@ -46,7 +46,6 @@ tags:
 - Flutter
 - Desktop
 - Mobile
-- Developer Tools
 tags_raw:
 - API Client
 - Open Source
@@ -62,10 +61,9 @@ apis:
 - aid: api-dash:api-dash
   name: API Dash
   description: >-
-    API Dash is an open source AI-powered cross-platform API client built
-    with Flutter for desktop and mobile. Supports HTTP, GraphQL, and
-    WebSocket with code generation, folder organization, and rich response
-    visualization.
+    API Dash is an open source AI-powered cross-platform API client built with Flutter for desktop and
+    mobile. Supports HTTP, GraphQL, and WebSocket with code generation, folder organization, and rich
+    response visualization.
   humanURL: https://apidash.dev
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/api-dash.png
   tags:
@@ -87,45 +85,166 @@ apis:
     url: https://github.com/foss42/apidash
   - type: GettingStarted
     url: https://github.com/foss42/apidash/blob/main/INSTALLATION.md
-- aid: api-dash:api-dash-apis
-  name: API Dash APIs
-  description: >-
-    The API Dash APIs are a free, keyless, open-source REST utility API published by foss42
-    alongside the API Dash client and served from the company's own host at api.apidash.dev.
-    OpenAPI 3.1.0, 57 operations across eight tags: country data (ISO 3166-1 codes, names,
-    official names, flags, geographic and demographic data, subdivisions), text conversion,
-    case conversion, humanization of numbers and dates, a purpose-built /io family for
-    exercising an HTTP client (delay, multipart, file upload, HEAD, octet-stream, full verb
-    coverage), a Server-Sent Events stream, and OAuth2 password-flow login over a sample user
-    dataset. 52 of the 57 operations require no credential of any kind.
-  humanURL: https://api.apidash.dev/docs
+- aid: api-dash:api-dash-api-dash-apis-api
+  name: API Dash API Dash APIs API
+  description: The API Dash APIs API from API Dash — 1 operation(s) for api dash apis.
+  humanURL: https://apidash.dev
   baseURL: https://api.apidash.dev
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/api-dash.png
   tags:
-  - API Client
-  - Open-Source
-  - Country Data
-  - Text Conversion
-  - Testing
-  tags_raw:
-  - API Client
-  - Open Source
-  - Country Data
-  - Text Conversion
-  - Testing
+  - API Dash APIs
   properties:
   - type: OpenAPI
-    url: openapi/api-dash-openapi.yml
-  - type: OpenAPI
-    url: openapi/_original/api-dash-openapi.json
+    url: openapi/api-dash-api-dash-apis-api-openapi.yml
   - type: APIReference
     url: https://api.apidash.dev/docs
   - type: Documentation
     url: https://api.apidash.dev/redoc
   - type: GitHubRepository
     url: https://github.com/foss42/api
-  - type: Overlay
-    url: overlays/api-dash-openapi-overlay.yaml
+  - type: ToolCrosswalk
+    url: mcp/api-dash-tool-crosswalk.yml
+- aid: api-dash:api-dash-case-conversion-api
+  name: API Dash Case Conversion API
+  description: The Case Conversion API from API Dash — 20 operation(s) for case conversion.
+  humanURL: https://apidash.dev
+  baseURL: https://api.apidash.dev
+  tags:
+  - Case Conversion
+  properties:
+  - type: OpenAPI
+    url: openapi/api-dash-case-conversion-api-openapi.yml
+  - type: APIReference
+    url: https://api.apidash.dev/docs
+  - type: Documentation
+    url: https://api.apidash.dev/redoc
+  - type: GitHubRepository
+    url: https://github.com/foss42/api
+  - type: ToolCrosswalk
+    url: mcp/api-dash-tool-crosswalk.yml
+- aid: api-dash:api-dash-country-data-api
+  name: API Dash Country Data API
+  description: The Country Data API from API Dash — 6 operation(s) for country data.
+  humanURL: https://apidash.dev
+  baseURL: https://api.apidash.dev
+  tags:
+  - Country Data
+  properties:
+  - type: OpenAPI
+    url: openapi/api-dash-country-data-api-openapi.yml
+  - type: APIReference
+    url: https://api.apidash.dev/docs
+  - type: Documentation
+    url: https://api.apidash.dev/redoc
+  - type: GitHubRepository
+    url: https://github.com/foss42/api
+  - type: ToolCrosswalk
+    url: mcp/api-dash-tool-crosswalk.yml
+- aid: api-dash:api-dash-humanize-api
+  name: API Dash Humanize API
+  description: The Humanize API from API Dash — 4 operation(s) for humanize.
+  humanURL: https://apidash.dev
+  baseURL: https://api.apidash.dev
+  tags:
+  - Humanize
+  properties:
+  - type: OpenAPI
+    url: openapi/api-dash-humanize-api-openapi.yml
+  - type: APIReference
+    url: https://api.apidash.dev/docs
+  - type: Documentation
+    url: https://api.apidash.dev/redoc
+  - type: GitHubRepository
+    url: https://github.com/foss42/api
+  - type: ToolCrosswalk
+    url: mcp/api-dash-tool-crosswalk.yml
+- aid: api-dash:api-dash-i-o-api
+  name: API Dash I/O API
+  description: The I/O API from API Dash — 9 operation(s) for i/o.
+  humanURL: https://apidash.dev
+  baseURL: https://api.apidash.dev
+  tags:
+  - I/O
+  properties:
+  - type: OpenAPI
+    url: openapi/api-dash-i-o-api-openapi.yml
+  - type: APIReference
+    url: https://api.apidash.dev/docs
+  - type: Documentation
+    url: https://api.apidash.dev/redoc
+  - type: GitHubRepository
+    url: https://github.com/foss42/api
+  - type: ToolCrosswalk
+    url: mcp/api-dash-tool-crosswalk.yml
+- aid: api-dash:api-dash-sse-api
+  name: API Dash SSE API
+  description: The SSE API from API Dash — 1 operation(s) for sse.
+  humanURL: https://apidash.dev
+  baseURL: https://api.apidash.dev
+  tags:
+  - SSE
+  properties:
+  - type: OpenAPI
+    url: openapi/api-dash-sse-api-openapi.yml
+  - type: APIReference
+    url: https://api.apidash.dev/docs
+  - type: Documentation
+    url: https://api.apidash.dev/redoc
+  - type: GitHubRepository
+    url: https://github.com/foss42/api
+  - type: ToolCrosswalk
+    url: mcp/api-dash-tool-crosswalk.yml
+- aid: api-dash:api-dash-text-conversion-api
+  name: API Dash Text Conversion API
+  description: The Text Conversion API from API Dash — 5 operation(s) for text conversion.
+  humanURL: https://apidash.dev
+  baseURL: https://api.apidash.dev
+  tags:
+  - Text Conversion
+  properties:
+  - type: OpenAPI
+    url: openapi/api-dash-text-conversion-api-openapi.yml
+  - type: APIReference
+    url: https://api.apidash.dev/docs
+  - type: Documentation
+    url: https://api.apidash.dev/redoc
+  - type: GitHubRepository
+    url: https://github.com/foss42/api
+  - type: ToolCrosswalk
+    url: mcp/api-dash-tool-crosswalk.yml
+- aid: api-dash:api-dash-user-authentication-api
+  name: API Dash User Authentication API
+  description: The User Authentication API from API Dash — 2 operation(s) for user authentication.
+  humanURL: https://apidash.dev
+  baseURL: https://api.apidash.dev
+  tags:
+  - User Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/api-dash-user-authentication-api-openapi.yml
+  - type: APIReference
+    url: https://api.apidash.dev/docs
+  - type: Documentation
+    url: https://api.apidash.dev/redoc
+  - type: GitHubRepository
+    url: https://github.com/foss42/api
+  - type: ToolCrosswalk
+    url: mcp/api-dash-tool-crosswalk.yml
+- aid: api-dash:api-dash-user-data-api
+  name: API Dash User Data API
+  description: The User Data API from API Dash — 3 operation(s) for user data.
+  humanURL: https://apidash.dev
+  baseURL: https://api.apidash.dev
+  tags:
+  - User Data
+  properties:
+  - type: OpenAPI
+    url: openapi/api-dash-user-data-api-openapi.yml
+  - type: APIReference
+    url: https://api.apidash.dev/docs
+  - type: Documentation
+    url: https://api.apidash.dev/redoc
+  - type: GitHubRepository
+    url: https://github.com/foss42/api
   - type: ToolCrosswalk
     url: mcp/api-dash-tool-crosswalk.yml
 common:
