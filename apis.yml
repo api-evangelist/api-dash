@@ -163,6 +163,8 @@ apis:
   humanURL: https://apidash.dev
   baseURL: https://api.apidash.dev
   tags:
+  - IO
+  tags_raw:
   - I/O
   properties:
   - type: OpenAPI
