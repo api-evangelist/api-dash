@@ -1,0 +1,182 @@
+openapi: 3.2.0
+info:
+  title: Dash Text Conversion API
+  description: Open Source APIs for all!
+  contact:
+    name: Know more about API Dash
+    url: https://apidash.dev/
+  version: 0.0.4
+tags:
+- name: Text Conversion
+paths:
+  /convert/slug:
+    get:
+      tags:
+      - Text Conversion
+      summary: To Slug
+      operationId: to_slug_convert_slug_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      - name: sep
+        in: query
+        required: false
+        schema:
+          type: string
+          default: '-'
+          title: Sep
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /convert/phone2numeric:
+    get:
+      tags:
+      - Text Conversion
+      summary: Phone Number To Numeric
+      operationId: phone_number_to_numeric_convert_phone2numeric_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /convert/leet:
+    get:
+      tags:
+      - Text Conversion
+      summary: To Leet
+      operationId: to_leet_convert_leet_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /convert/upsidedown:
+    get:
+      tags:
+      - Text Conversion
+      summary: To Upside Down
+      operationId: to_upside_down_convert_upsidedown_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /convert/mirror:
+    get:
+      tags:
+      - Text Conversion
+      summary: To Mirror
+      operationId: to_mirror_convert_mirror_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+  securitySchemes:
+    OAuth2PasswordBearer:
+      type: oauth2
+      flows:
+        password:
+          scopes: {}
+          tokenUrl: /login

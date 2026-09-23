@@ -1,0 +1,337 @@
+openapi: 3.2.0
+info:
+  title: Dash I/O API
+  description: Open Source APIs for all!
+  contact:
+    name: Know more about API Dash
+    url: https://apidash.dev/
+  version: 0.0.4
+tags:
+- name: I/O
+paths:
+  /io/delay:
+    get:
+      tags:
+      - I/O
+      summary: Delayed Request
+      operationId: delayed_request_io_delay_get
+      parameters:
+      - name: wait
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 5
+          title: Wait
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /io/form:
+    post:
+      tags:
+      - I/O
+      summary: Form To Rotate Text Chars
+      description: 'text fields/text file attachment work for both
+
+        application/x-www-form-urlencoded multipart/form-data'
+      operationId: form_to_rotate_text_chars_io_form_post
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Body_form_to_rotate_text_chars_io_form_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /io/filesize:
+    post:
+      tags:
+      - I/O
+      summary: Create File
+      operationId: create_file_io_filesize_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /io/img:
+    post:
+      tags:
+      - I/O
+      summary: Analyze Img File
+      operationId: analyze_img_file_io_img_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_analyze_img_file_io_img_post'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /io/user/create:
+    post:
+      tags:
+      - I/O
+      summary: Create User
+      operationId: create_user_io_user_create_post
+      parameters:
+      - name: username
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Username
+      - name: email
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Email
+      - name: password
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Password
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /io/user/update:
+    put:
+      tags:
+      - I/O
+      summary: Update User
+      operationId: update_user_io_user_update_put
+      parameters:
+      - name: username
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Username
+      - name: new_email
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: New Email
+      - name: new_password
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: New Password
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /io/user/{username}:
+    patch:
+      tags:
+      - I/O
+      summary: Patch User
+      operationId: patch_user_io_user__username__patch
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Username
+      - name: new_email
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: New Email
+      - name: new_password
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: New Password
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+      - I/O
+      summary: Delete User
+      operationId: delete_user_io_user__username__delete
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Username
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /io/head:
+    head:
+      tags:
+      - I/O
+      summary: Head Request
+      operationId: head_request_io_head_head
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /io/octet-stream:
+    post:
+      tags:
+      - I/O
+      summary: Octet Stream Request
+      operationId: octet_stream_request_io_octet_stream_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    Body_form_to_rotate_text_chars_io_form_post:
+      properties:
+        text:
+          type: string
+          title: Text
+        sep:
+          type: string
+          title: Sep
+        times:
+          type: integer
+          title: Times
+      type: object
+      required:
+      - text
+      - sep
+      - times
+      title: Body_form_to_rotate_text_chars_io_form_post
+    Body_analyze_img_file_io_img_post:
+      properties:
+        imfile:
+          type: string
+          format: binary
+          title: Imfile
+        token:
+          type: string
+          title: Token
+      type: object
+      required:
+      - imfile
+      - token
+      title: Body_analyze_img_file_io_img_post
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+  securitySchemes:
+    OAuth2PasswordBearer:
+      type: oauth2
+      flows:
+        password:
+          scopes: {}
+          tokenUrl: /login

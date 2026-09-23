@@ -1,0 +1,676 @@
+openapi: 3.2.0
+info:
+  title: Dash Case Conversion API
+  description: Open Source APIs for all!
+  contact:
+    name: Know more about API Dash
+    url: https://apidash.dev/
+  version: 0.0.4
+tags:
+- name: Case Conversion
+paths:
+  /case/lower:
+    post:
+      tags:
+      - Case Conversion
+      summary: To Lower Case
+      operationId: to_lower_case_case_lower_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextModel'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+      - Case Conversion
+      summary: To Lower Case
+      operationId: to_lower_case_case_lower_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/upper:
+    post:
+      tags:
+      - Case Conversion
+      summary: To Upper Case
+      operationId: to_upper_case_case_upper_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextModel'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+      - Case Conversion
+      summary: To Upper Case
+      operationId: to_upper_case_case_upper_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/capital:
+    post:
+      tags:
+      - Case Conversion
+      summary: To Capital Case
+      operationId: to_capital_case_case_capital_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextModel'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+      - Case Conversion
+      summary: To Capital Case
+      operationId: to_capital_case_case_capital_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/title:
+    post:
+      tags:
+      - Case Conversion
+      summary: To Title Case
+      operationId: to_title_case_case_title_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextModel'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+      - Case Conversion
+      summary: To Title Case
+      operationId: to_title_case_case_title_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/sentence:
+    post:
+      tags:
+      - Case Conversion
+      summary: To Sentence Case
+      operationId: to_sentence_case_case_sentence_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextModel'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+      - Case Conversion
+      summary: To Sentence Case
+      operationId: to_sentence_case_case_sentence_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/swap:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Swap Case
+      operationId: to_swap_case_case_swap_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/flat:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Flat Case
+      operationId: to_flat_case_case_flat_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/pascal:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Pascal Case
+      operationId: to_pascal_case_case_pascal_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/camel:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Camel Case
+      operationId: to_camel_case_case_camel_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/snake:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Snake Case
+      operationId: to_snake_case_case_snake_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/constant:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Constant Case
+      operationId: to_constant_case_case_constant_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/camelsnake:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Camel Snake Case
+      operationId: to_camel_snake_case_case_camelsnake_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/pascalsnake:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Pascal Snake Case
+      operationId: to_pascal_snake_case_case_pascalsnake_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/dot:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Dot Case
+      operationId: to_dot_case_case_dot_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/kebab:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Kebab Case
+      operationId: to_kebab_case_case_kebab_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/cobol:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Cobol Case
+      operationId: to_cobol_case_case_cobol_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/train:
+    get:
+      tags:
+      - Case Conversion
+      summary: To Train Case
+      operationId: to_train_case_case_train_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/camel2lower:
+    get:
+      tags:
+      - Case Conversion
+      summary: Camel To Lower Case
+      operationId: camel_to_lower_case_case_camel2lower_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/snake2lower:
+    get:
+      tags:
+      - Case Conversion
+      summary: Snake To Lower Case
+      operationId: snake_to_lower_case_case_snake2lower_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /case/kebab2lower:
+    get:
+      tags:
+      - Case Conversion
+      summary: Kebab To Lower Case
+      operationId: kebab_to_lower_case_case_kebab2lower_get
+      parameters:
+      - name: text
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    TextModel:
+      properties:
+        text:
+          type: string
+          title: Text
+      type: object
+      required:
+      - text
+      title: TextModel
+      example:
+        text: Grass is green
+  securitySchemes:
+    OAuth2PasswordBearer:
+      type: oauth2
+      flows:
+        password:
+          scopes: {}
+          tokenUrl: /login

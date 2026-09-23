@@ -1,0 +1,279 @@
+openapi: 3.2.0
+info:
+  title: Dash Humanize API
+  description: Open Source APIs for all!
+  contact:
+    name: Know more about API Dash
+    url: https://apidash.dev/
+  version: 0.0.4
+tags:
+- name: Humanize
+paths:
+  /humanize/bytes:
+    get:
+      tags:
+      - Humanize
+      summary: Humanize Bytes
+      operationId: humanize_bytes_humanize_bytes_get
+      parameters:
+      - name: num
+        in: query
+        required: true
+        schema:
+          type: integer
+          minimum: 0
+          title: Num
+      - name: digits
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+          title: Digits
+      - name: prefix
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Prefix
+      - name: add_space
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          title: Add Space
+      - name: trailing_zeros
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Trailing Zeros
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /humanize/social:
+    get:
+      tags:
+      - Humanize
+      summary: Humanize Social
+      operationId: humanize_social_humanize_social_get
+      parameters:
+      - name: num
+        in: query
+        required: true
+        schema:
+          type: integer
+          minimum: 0
+          title: Num
+      - name: digits
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+          title: Digits
+      - name: system
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/SystemEnum'
+          default: NA
+      - name: add_space
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Add Space
+      - name: trailing_zeros
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Trailing Zeros
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /humanize/rank:
+    get:
+      tags:
+      - Humanize
+      summary: Humanize Rank
+      operationId: humanize_rank_humanize_rank_get
+      parameters:
+      - name: num
+        in: query
+        required: true
+        schema:
+          type: integer
+          minimum: 0
+          title: Num
+      - name: to_words
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: To Words
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /humanize/time:
+    get:
+      tags:
+      - Humanize
+      summary: Humanize Time
+      operationId: humanize_time_humanize_time_get
+      parameters:
+      - name: dt
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Dt
+      - name: dt_ref
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dt Ref
+      - name: fmt
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Fmt
+      - name: units
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateUnitsEnum'
+          default: FULL
+      - name: cutoff_now
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          default: 1
+          title: Cutoff Now
+      - name: add_adverb
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Add Adverb
+      - name: use_article
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Use Article
+      - name: round_down
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: true
+          title: Round Down
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    DateUnitsEnum:
+      type: string
+      enum:
+      - FULL
+      - SHORT
+      title: DateUnitsEnum
+    SystemEnum:
+      type: string
+      enum:
+      - NA
+      - UK
+      - SS
+      title: SystemEnum
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+  securitySchemes:
+    OAuth2PasswordBearer:
+      type: oauth2
+      flows:
+        password:
+          scopes: {}
+          tokenUrl: /login

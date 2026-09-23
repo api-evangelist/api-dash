@@ -1,0 +1,146 @@
+openapi: 3.2.0
+info:
+  title: Dash User Data API
+  description: Open Source APIs for all!
+  contact:
+    name: Know more about API Dash
+    url: https://apidash.dev/
+  version: 0.0.4
+tags:
+- name: User Data
+paths:
+  /profile:
+    get:
+      tags:
+      - User Data
+      summary: Read Random Profile
+      operationId: read_random_profile_profile_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      security:
+      - OAuth2PasswordBearer: []
+  /users:
+    get:
+      tags:
+      - User Data
+      summary: Read All Users
+      operationId: read_all_users_users_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserListResponseModel'
+  /users/{user_id}:
+    get:
+      tags:
+      - User Data
+      summary: Read User By Id
+      operationId: read_user_by_id_users__user_id__get
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          title: User Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    UserModel:
+      properties:
+        id:
+          type: integer
+          title: Id
+        name:
+          type: string
+          title: Name
+        phone:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Phone
+        email:
+          type: string
+          title: Email
+        country:
+          type: string
+          title: Country
+      type: object
+      required:
+      - id
+      - name
+      - email
+      - country
+      title: UserModel
+      example:
+        country: United States
+        email: travisbarber@apidash.in
+        id: '1'
+        name: Travis Barber
+        phone: 1-288-119-0313
+    UserListResponseModel:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UserModel'
+          type: array
+          title: Data
+      type: object
+      required:
+      - data
+      title: UserListResponseModel
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+  securitySchemes:
+    OAuth2PasswordBearer:
+      type: oauth2
+      flows:
+        password:
+          scopes: {}
+          tokenUrl: /login

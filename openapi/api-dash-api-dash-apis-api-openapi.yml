@@ -1,0 +1,31 @@
+openapi: 3.2.0
+info:
+  title: API Dash APIs API
+  description: Open Source APIs for all!
+  contact:
+    name: Know more about API Dash
+    url: https://apidash.dev/
+  version: 0.0.4
+tags:
+- name: API Dash APIs
+paths:
+  /:
+    get:
+      summary: Welcome
+      operationId: welcome__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - API Dash APIs
+components:
+  securitySchemes:
+    OAuth2PasswordBearer:
+      type: oauth2
+      flows:
+        password:
+          scopes: {}
+          tokenUrl: /login
