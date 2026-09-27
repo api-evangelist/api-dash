@@ -626,15 +626,17 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
+    TextModel:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        text:
+          type: string
+          title: Text
       type: object
-      title: HTTPValidationError
+      required:
+      - text
+      title: TextModel
+      example:
+        text: Grass is green
     ValidationError:
       properties:
         loc:
@@ -656,17 +658,15 @@ components:
       - msg
       - type
       title: ValidationError
-    TextModel:
+    HTTPValidationError:
       properties:
-        text:
-          type: string
-          title: Text
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - text
-      title: TextModel
-      example:
-        text: Grass is green
+      title: HTTPValidationError
   securitySchemes:
     OAuth2PasswordBearer:
       type: oauth2

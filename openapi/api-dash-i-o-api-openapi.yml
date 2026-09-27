@@ -267,6 +267,37 @@ paths:
               schema: {}
 components:
   schemas:
+    Body_analyze_img_file_io_img_post:
+      properties:
+        imfile:
+          type: string
+          format: binary
+          title: Imfile
+        token:
+          type: string
+          title: Token
+      type: object
+      required:
+      - imfile
+      - token
+      title: Body_analyze_img_file_io_img_post
+    Body_form_to_rotate_text_chars_io_form_post:
+      properties:
+        text:
+          type: string
+          title: Text
+        sep:
+          type: string
+          title: Sep
+        times:
+          type: integer
+          title: Times
+      type: object
+      required:
+      - text
+      - sep
+      - times
+      title: Body_form_to_rotate_text_chars_io_form_post
     ValidationError:
       properties:
         loc:
@@ -288,37 +319,6 @@ components:
       - msg
       - type
       title: ValidationError
-    Body_form_to_rotate_text_chars_io_form_post:
-      properties:
-        text:
-          type: string
-          title: Text
-        sep:
-          type: string
-          title: Sep
-        times:
-          type: integer
-          title: Times
-      type: object
-      required:
-      - text
-      - sep
-      - times
-      title: Body_form_to_rotate_text_chars_io_form_post
-    Body_analyze_img_file_io_img_post:
-      properties:
-        imfile:
-          type: string
-          format: binary
-          title: Imfile
-        token:
-          type: string
-          title: Token
-      type: object
-      required:
-      - imfile
-      - token
-      title: Body_analyze_img_file_io_img_post
     HTTPValidationError:
       properties:
         detail:

@@ -10,23 +10,23 @@ description: >-
   and Insomnia with an active open source community.
 type: Index
 deliveryModel:
-  model: open-source
-  open_source: true
+  model: open-core
   license: Apache-2.0
-  commercial: false
-  callable_host: true
-  label: Open source (Apache-2.0), with a free keyless hosted API
-  confidence: high
+  license_evidence:
+    repo: foss42/apidash
+    spdx: Apache-2.0
+    stars: 2912
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: medium
   source:
-  - https://github.com/foss42/apidash/blob/main/LICENSE
-  - https://github.com/foss42/api
-  - https://api.apidash.dev/openapi.json
-  note: >-
-    Corrected 2026-09-02. The prior value read "repository-unlicensed" and commercial:true; the
-    GitHub API reports Apache-2.0 on both foss42/apidash and foss42/api, and callable_host is now
-    true because a live keyless REST API is served at https://api.apidash.dev.
-  generated: '2026-09-02'
-  method: searched
+  - openapi
+  - pricing
+  - repository-license
+  generated: '2026-09-25'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -42,7 +42,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/api-dash.png
 tags:
 - API Client
-- Open-Source
+- Open Source
 - Flutter
 - Desktop
 - Mobile
@@ -52,6 +52,7 @@ tags_raw:
 - Flutter
 - Desktop
 - Mobile
+- Open-Source
 url: >-
   https://raw.githubusercontent.com/api-evangelist/api-dash/refs/heads/main/apis.yml
 created: '2026-03-25'
@@ -69,7 +70,7 @@ apis:
   tags:
   - API Client
   - Flutter
-  - Open-Source
+  - Open Source
   - Desktop
   - Mobile
   tags_raw:
@@ -78,6 +79,7 @@ apis:
   - Open Source
   - Desktop
   - Mobile
+  - Open-Source
   properties:
   - type: Documentation
     url: https://github.com/foss42/apidash/tree/main/doc
