@@ -267,20 +267,6 @@ paths:
               schema: {}
 components:
   schemas:
-    Body_analyze_img_file_io_img_post:
-      properties:
-        imfile:
-          type: string
-          format: binary
-          title: Imfile
-        token:
-          type: string
-          title: Token
-      type: object
-      required:
-      - imfile
-      - token
-      title: Body_analyze_img_file_io_img_post
     Body_form_to_rotate_text_chars_io_form_post:
       properties:
         text:
@@ -298,6 +284,20 @@ components:
       - sep
       - times
       title: Body_form_to_rotate_text_chars_io_form_post
+    Body_analyze_img_file_io_img_post:
+      properties:
+        imfile:
+          type: string
+          format: binary
+          title: Imfile
+        token:
+          type: string
+          title: Token
+      type: object
+      required:
+      - imfile
+      - token
+      title: Body_analyze_img_file_io_img_post
     ValidationError:
       properties:
         loc:

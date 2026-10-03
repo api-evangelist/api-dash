@@ -227,6 +227,12 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    DateUnitsEnum:
+      type: string
+      enum:
+      - FULL
+      - SHORT
+      title: DateUnitsEnum
     SystemEnum:
       type: string
       enum:
@@ -234,12 +240,6 @@ components:
       - UK
       - SS
       title: SystemEnum
-    DateUnitsEnum:
-      type: string
-      enum:
-      - FULL
-      - SHORT
-      title: DateUnitsEnum
     ValidationError:
       properties:
         loc:

@@ -96,15 +96,17 @@ components:
         id: '1'
         name: Travis Barber
         phone: 1-288-119-0313
-    HTTPValidationError:
+    UserListResponseModel:
       properties:
-        detail:
+        data:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/UserModel'
           type: array
-          title: Detail
+          title: Data
       type: object
-      title: HTTPValidationError
+      required:
+      - data
+      title: UserListResponseModel
     ValidationError:
       properties:
         loc:
@@ -126,17 +128,15 @@ components:
       - msg
       - type
       title: ValidationError
-    UserListResponseModel:
+    HTTPValidationError:
       properties:
-        data:
+        detail:
           items:
-            $ref: '#/components/schemas/UserModel'
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Data
+          title: Detail
       type: object
-      required:
-      - data
-      title: UserListResponseModel
+      title: HTTPValidationError
   securitySchemes:
     OAuth2PasswordBearer:
       type: oauth2
