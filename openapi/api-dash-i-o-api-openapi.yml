@@ -267,23 +267,6 @@ paths:
               schema: {}
 components:
   schemas:
-    Body_form_to_rotate_text_chars_io_form_post:
-      properties:
-        text:
-          type: string
-          title: Text
-        sep:
-          type: string
-          title: Sep
-        times:
-          type: integer
-          title: Times
-      type: object
-      required:
-      - text
-      - sep
-      - times
-      title: Body_form_to_rotate_text_chars_io_form_post
     Body_analyze_img_file_io_img_post:
       properties:
         imfile:
@@ -328,6 +311,23 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    Body_form_to_rotate_text_chars_io_form_post:
+      properties:
+        text:
+          type: string
+          title: Text
+        sep:
+          type: string
+          title: Sep
+        times:
+          type: integer
+          title: Times
+      type: object
+      required:
+      - text
+      - sep
+      - times
+      title: Body_form_to_rotate_text_chars_io_form_post
   securitySchemes:
     OAuth2PasswordBearer:
       type: oauth2

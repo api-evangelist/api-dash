@@ -233,13 +233,6 @@ components:
       - FULL
       - SHORT
       title: DateUnitsEnum
-    SystemEnum:
-      type: string
-      enum:
-      - NA
-      - UK
-      - SS
-      title: SystemEnum
     ValidationError:
       properties:
         loc:
@@ -261,6 +254,13 @@ components:
       - msg
       - type
       title: ValidationError
+    SystemEnum:
+      type: string
+      enum:
+      - NA
+      - UK
+      - SS
+      title: SystemEnum
     HTTPValidationError:
       properties:
         detail:
