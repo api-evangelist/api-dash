@@ -252,6 +252,8 @@ apis:
   - type: ToolCrosswalk
     url: mcp/api-dash-tool-crosswalk.yml
 common:
+- type: FinOps
+  url: finops/api-dash-finops.yml
 - url: https://apidash.dev/blog/
   type: Blog
 - type: AgenticAccess
