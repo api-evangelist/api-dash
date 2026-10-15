@@ -1,10 +1,55 @@
-generated: '2026-09-02'
-method: derived
-source: openapi/api-dash-openapi.yml
+generated: '2026-10-14'
+method: none
+source: openapi/api-dash-api-dash-apis-api-openapi.yml, openapi/api-dash-case-conversion-api-openapi.yml,
+  openapi/api-dash-country-data-api-openapi.yml, openapi/api-dash-humanize-api-openapi.yml,
+  openapi/api-dash-i-o-api-openapi.yml, openapi/api-dash-sse-api-openapi.yml, openapi/api-dash-text-conversion-api-openapi.yml,
+  openapi/api-dash-user-authentication-api-openapi.yml, openapi/api-dash-user-data-api-openapi.yml
 schemes:
 - name: OAuth2PasswordBearer
-  source: openapi/api-dash-openapi.yml
+  source: openapi/api-dash-api-dash-apis-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: /login
+- name: OAuth2PasswordBearer
+  source: openapi/api-dash-case-conversion-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: /login
+- name: OAuth2PasswordBearer
+  source: openapi/api-dash-country-data-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: /login
+- name: OAuth2PasswordBearer
+  source: openapi/api-dash-humanize-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: /login
+- name: OAuth2PasswordBearer
+  source: openapi/api-dash-i-o-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: /login
+- name: OAuth2PasswordBearer
+  source: openapi/api-dash-sse-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: /login
+- name: OAuth2PasswordBearer
+  source: openapi/api-dash-text-conversion-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: /login
+- name: OAuth2PasswordBearer
+  source: openapi/api-dash-user-authentication-api-openapi.yml
+  flows:
+  - flow: password
+    tokenUrl: /login
+- name: OAuth2PasswordBearer
+  source: openapi/api-dash-user-data-api-openapi.yml
   flows:
   - flow: password
     tokenUrl: /login
 scopes: []
+note: The OAuth2 security scheme(s) in the OpenAPI declare no scopes, and no security requirement
+  references one.
