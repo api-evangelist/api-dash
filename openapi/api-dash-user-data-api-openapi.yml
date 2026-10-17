@@ -64,17 +64,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    UserListResponseModel:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/UserModel'
-          type: array
-          title: Data
-      type: object
-      required:
-      - data
-      title: UserListResponseModel
     HTTPValidationError:
       properties:
         detail:
@@ -137,6 +126,17 @@ components:
         id: '1'
         name: Travis Barber
         phone: 1-288-119-0313
+    UserListResponseModel:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/UserModel'
+          type: array
+          title: Data
+      type: object
+      required:
+      - data
+      title: UserListResponseModel
   securitySchemes:
     OAuth2PasswordBearer:
       type: oauth2

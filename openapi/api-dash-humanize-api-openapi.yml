@@ -227,12 +227,28 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     DateUnitsEnum:
       type: string
       enum:
       - FULL
       - SHORT
       title: DateUnitsEnum
+    SystemEnum:
+      type: string
+      enum:
+      - NA
+      - UK
+      - SS
+      title: SystemEnum
     ValidationError:
       properties:
         loc:
@@ -254,22 +270,6 @@ components:
       - msg
       - type
       title: ValidationError
-    SystemEnum:
-      type: string
-      enum:
-      - NA
-      - UK
-      - SS
-      title: SystemEnum
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
   securitySchemes:
     OAuth2PasswordBearer:
       type: oauth2
