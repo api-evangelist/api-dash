@@ -1,4 +1,4 @@
-# API Dash (api-dash)
+# API Dash
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,73 +66,150 @@
 
 API Dash is a beautiful AI-powered open-source cross-platform API client built with Flutter, available on Desktop (macOS, Windows, Linux) and Mobile. It provides HTTP and GraphQL request creation, response visualization, folder and collection organization, code generation for multiple languages, and support for 40+ MIME types including image, audio, and PDF preview. Developed by the foss42 organization, API Dash is a lightweight alternative to Postman and Insomnia with an active open source community.
 
-**URL:** [https://raw.githubusercontent.com/api-evangelist/api-dash/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/api-dash/refs/heads/main/apis.yml)
+**Areas:** API Client · Open Source · Flutter · Desktop · Mobile
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## API Dash on APIs.io
 
-## Tags:
+Everything profiled for API Dash is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/api-dash/](https://apis.io/providers/api-dash/)** — or go straight to one of the APIs or properties below.
 
- - API Client, Open Source, Flutter, Desktop, Mobile
+### APIs (10)
 
-## Timestamps
+- [API Dash](https://apis.io/apis/api-dash/api-dash/) — API Dash is an open source AI-powered cross-platform API client built with Flutter for desktop and mobile. Supports HTTP, GraphQL, and WebSocket with code…
+- [API Dash API Dash APIs API](https://apis.io/apis/api-dash/api-dash-api-dash-apis-api/) — The API Dash APIs API from API Dash — 1 operation(s) for api dash apis.
+- [API Dash Case Conversion API](https://apis.io/apis/api-dash/api-dash-case-conversion-api/) — The Case Conversion API from API Dash — 20 operation(s) for case conversion.
+- [API Dash Country Data API](https://apis.io/apis/api-dash/api-dash-country-data-api/) — The Country Data API from API Dash — 6 operation(s) for country data.
+- [API Dash Humanize API](https://apis.io/apis/api-dash/api-dash-humanize-api/) — The Humanize API from API Dash — 4 operation(s) for humanize.
+- [API Dash I/O API](https://apis.io/apis/api-dash/api-dash-i-o-api/) — The I/O API from API Dash — 9 operation(s) for i/o.
+- [API Dash SSE API](https://apis.io/apis/api-dash/api-dash-sse-api/) — The SSE API from API Dash — 1 operation(s) for sse.
+- [API Dash Text Conversion API](https://apis.io/apis/api-dash/api-dash-text-conversion-api/) — The Text Conversion API from API Dash — 5 operation(s) for text conversion.
+- [API Dash User Authentication API](https://apis.io/apis/api-dash/api-dash-user-authentication-api/) — The User Authentication API from API Dash — 2 operation(s) for user authentication.
+- [API Dash User Data API](https://apis.io/apis/api-dash/api-dash-user-data-api/) — The User Data API from API Dash — 3 operation(s) for user data.
 
-- **Created:** 2026-03-25
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### API Dash
-API Dash is an open source AI-powered cross-platform API client built with Flutter for desktop and mobile. Supports HTTP, GraphQL, and WebSocket with code generation, folder organization, and rich response visualization.
+#### GraphQL (1)
 
-**Human URL:** [https://apidash.dev](https://apidash.dev)
+GraphQL schemas.
 
-#### Tags:
+- [API Dash and GraphQL — no GraphQL API is published](https://apis.io/graphqls/api-dash/api-dash-graphql/)
 
- - API Client, Flutter, Open Source, Desktop, Mobile
+#### MCP servers (1)
 
-#### Properties
+Model Context Protocol servers that expose the API to agents.
 
-- [Documentation](https://github.com/foss42/apidash#readme)
-- [GitHubRepository](https://github.com/foss42/apidash)
-- [GettingStarted](https://github.com/foss42/apidash#installation)
+- [foss42](https://apis.io/servers/api-dash/foss42/)
 
-## Common Properties
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Api Dash Agentic Access](https://apis.io/agentic-access/api-dash/api-dash-agentic-access/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Api Dash Openapi Overlay](https://apis.io/overlays/api-dash/api-dash-openapi-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Api Dash Authentication](https://apis.io/security/api-dash/api-dash-authentication/)
+- [Api Dash Domain Security](https://apis.io/security/api-dash/api-dash-domain-security/)
+- [Api Dash Vulnerability Disclosure](https://apis.io/security/api-dash/api-dash-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Api Dash Scopes](https://apis.io/scopes/api-dash/api-dash-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Api Dash Plans Pricing](https://apis.io/plans/api-dash/api-dash-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Api Dash Rate Limits](https://apis.io/rate-limits/api-dash/api-dash-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Api Dash Finops](https://apis.io/finops/api-dash/api-dash-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://apidash.dev)
-- [GitHubOrganization](https://github.com/foss42)
-- [GitHubRepository](https://github.com/foss42/apidash)
 - [Documentation](https://github.com/foss42/apidash#readme)
+- [Getting started](https://github.com/foss42/apidash/blob/main/INSTALLATION.md)
+- [API reference](https://api.apidash.dev/docs)
 - [Support](https://discord.gg/apidash)
-- [TermsOfService](https://github.com/foss42/apidash/blob/main/LICENSE)
+- [Blog](https://apidash.dev/blog/)
+- [Terms of service](https://github.com/foss42/apidash/blob/main/LICENSE)
+- [Privacy policy](https://apidash.dev/privacy/)
+- [GitHub](https://github.com/foss42)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| HTTP and GraphQL Support | Create, customize, and send HTTP and GraphQL API requests with full control over headers, parameters, body, and authentication. |
-| AI-Powered Integration | AI-powered features help developers work more efficiently with API requests, responses, and integration code generation. |
-| Code Generation | Generate API integration code in multiple languages including JavaScript, Python, Dart, and Kotlin from any request. |
-| Rich Response Visualization | Visualize API responses across 40+ MIME types including images, audio, PDFs, and JSON with built-in search functionality. |
-| Collections and Folders | Organize API requests into folders and collections for structured API workflow management. |
-| Cross-Platform | Runs natively on macOS, Windows, Linux (Intel/AMD 64-bit and ARM 64-bit), with mobile support as well. |
+**Kin Score 44.6** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 63.3 |
+| Contract quality | 33.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 21.1 |
 
-| Name | Description |
-|------|-------------|
-| API Testing | Test REST and GraphQL APIs with a fully featured desktop client as a lightweight alternative to Postman and Insomnia. |
-| API Integration Development | Generate boilerplate integration code in multiple languages to accelerate API client development. |
-| API Response Inspection | Visually inspect and search API responses across many content types including JSON, images, and documents. |
+**Agent readiness 28.3** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | — |
 
-| Name | Description |
-|------|-------------|
-| Flutter Ecosystem | Built with Flutter, API Dash integrates with the Dart/Flutter ecosystem and publishes packages to pub.dev. |
-| OpenAPI | Import and export OpenAPI specifications for structured API request collection management. |
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
 
-## Maintainers
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/api-dash/](https://apis.io/providers/api-dash/).
 
-**FN:** Kin Lane
+## How this profile is made
 
-**Email:** kin@apievangelist.com
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for API Dash: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/api-dash/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
